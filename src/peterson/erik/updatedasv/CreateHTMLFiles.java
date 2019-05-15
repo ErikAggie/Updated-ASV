@@ -20,7 +20,7 @@ import java.util.regex.Pattern;
     private static final Map<String, String> BOOK_NAME_MAP = new HashMap<>();
 
     static {
-        /*BOOK_NAME_MAP.put("GEN", "Genesis");
+        BOOK_NAME_MAP.put("GEN", "Genesis");
         BOOK_NAME_MAP.put("EXO", "Exodus");
         BOOK_NAME_MAP.put("LEV", "Leviticus");
         BOOK_NAME_MAP.put("NUM", "Numbers");
@@ -59,7 +59,7 @@ import java.util.regex.Pattern;
         BOOK_NAME_MAP.put("HAG", "Haggai");
         BOOK_NAME_MAP.put("ZEC", "Zechariah");
         BOOK_NAME_MAP.put("MAL", "Malachi");
-        BOOK_NAME_MAP.put("MAT", "Matthew");*/
+        BOOK_NAME_MAP.put("MAT", "Matthew");
         BOOK_NAME_MAP.put("MRK", "Mark");
         BOOK_NAME_MAP.put("LUK", "Luke");
         BOOK_NAME_MAP.put("JHN", "John");
@@ -128,6 +128,8 @@ import java.util.regex.Pattern;
                             //   'b' (break)
                             //   'nb' (no break?)
                             //   'pi' (paragraph indented?)
+                            //   'd' (dedication? happens at the beginning of some Psalms)
+                            //   'qs' ("Selah")
                             case "p":
                             case "q":
                             case "m":
@@ -135,6 +137,8 @@ import java.util.regex.Pattern;
                             case "b":
                             case "nb":
                             case "pi":
+                            case "d":
+                            case "qs":
                                 break;
                             // We don't need these
                             case "main":
