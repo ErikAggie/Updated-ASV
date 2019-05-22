@@ -24,9 +24,14 @@ public class ChapterConverter {
     }
 
     public void cleanUpFile() throws IOException {
-        Document originalDoc = Jsoup.parse(sourceFile, "UTF-8", "http://example.com/");
+
+        String bookName = Util.BOOK_NAME_MAP.get(sourceFileKey);
+
         StringBuilder newText = new StringBuilder();
-        newText.append("<html><body>");
+        newText.append(Util.HEAD_AND_CSS);
+        newText.append("<div class=ch>" + bookName + " " + Integer.parseInt(chapterMatcher.group(1)) + "</div>");
+
+        Document originalDoc = Jsoup.parse(sourceFile, "UTF-8", "http://example.com/");
         Elements divElements = originalDoc.getElementsByTag("div");
         for ( Element paragraph : divElements) {
             String classname = paragraph.className();
@@ -53,7 +58,7 @@ public class ChapterConverter {
                 case "d":
                 case "qs":
                     break;
-                // We don't need these
+                // We don't need these/will replace them
                 case "main":
                 case "chapterlabel":
                 case "footnote":
@@ -61,7 +66,7 @@ public class ChapterConverter {
                 case "ms": // The book headings in Psalms. Might be useful someday, but not today...
                     continue;
                 default:
-                    System.out.println(Util.BOOK_NAME_MAP.get(sourceFileKey) + " " + chapterMatcher.group(1) + ": Another kind of div class: " + classname);
+                    System.out.println(bookName + " " + chapterMatcher.group(1) + ": Another kind of div class: " + classname);
                     continue;
             }
 
@@ -69,15 +74,16 @@ public class ChapterConverter {
             text = text.replaceAll("\\n", "");
             newText.append("<div class=\"" + classname + "\" >").append(text).append("</div>");
         }
+        newText.append(Util.UNMODIFIED_COPYRIGHT);
         newText.append("</body></html>");
 //                    System.out.println("Now have " + newText.toString());
 
-        File newBookDirectory = new File(new File(Util.CLEANED_UP_TEXT_DIR), Util.BOOK_NAME_MAP.get(sourceFileKey));
+        File newBookDirectory = new File(new File(Util.CLEANED_UP_TEXT_DIR), bookName);
         if ( !newBookDirectory.exists()) {
             newBookDirectory.mkdir();
         }
 
-        File newFile = new File(newBookDirectory, Util.BOOK_NAME_MAP.get(sourceFileKey) + chapterMatcher.group(1) + ".htm");
+        File newFile = new File(newBookDirectory, bookName + chapterMatcher.group(1) + ".htm");
         FileWriter fileWriter = new FileWriter(newFile);
         fileWriter.append(newText.toString());
         fileWriter.close();

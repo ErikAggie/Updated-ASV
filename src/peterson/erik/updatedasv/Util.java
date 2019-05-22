@@ -78,4 +78,20 @@ public class Util {
         BOOK_NAME_MAP.put("REV", "Revelation");
     }
 
+    public static final String HEAD_AND_CSS =
+            "<html><head>" +
+                "<link type=\"text/css\" href=\"../styles.css\" rel=\"stylesheet\" media=\"all\" />" +
+            "</head><body>";
+
+    public static final String UNMODIFIED_COPYRIGHT =
+            "<div class=copyright>" +
+                    "The American Standard Version is in the public domain, and you may use it freely. " +
+                    "As with any text--copyrighted or not--be sure to cite the source with something like (ASV) " +
+                    "at the end of your quotation.</div>";
+
+    public static final String MODIFIED_COPYRIGHT =
+            "<div class=copyright" +
+                    "This text is based on the American Standard Version, which is in the public domain. " +
+                    "This modification is Copyright 2019 by Erik Peterson. All rights reserved. " +
+                    "Future permissions will likely be more open.</div>";
 }

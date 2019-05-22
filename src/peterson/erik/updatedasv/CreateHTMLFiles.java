@@ -49,7 +49,6 @@ import java.util.regex.Pattern;
 //                    System.out.println("Found " + BOOK_NAME_MAP.get(key) + " " + chapterMatcher.group(1));
                     ChapterConverter chapterConverter = new ChapterConverter(file, chapterMatcher, key);
                     chapterConverter.cleanUpFile();
-
                     break;
                 }
             }

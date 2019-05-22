@@ -1,0 +1,52 @@
+.mt {
+    text-align: center;
+    line-height: 1.8;
+    font-size: 2.5em;
+    font-weight: bold;
+}
+
+div {
+    margin-top: .1em;
+    line-height: 1.5em;
+    text-indent: 1.5em;
+    font-size: 1.3em;
+}
+
+.p {
+}
+
+.d {
+    font-style: italic;
+    text-indent: 3em;
+}
+
+.q {
+    text-indent: 2em;
+}
+
+.q2 {
+    text-indent: 4em;
+}
+
+.qs {
+    text-align: right;
+}
+
+.add {
+    font-style: italic;
+}
+
+.verse {
+    font-weight: bold;
+}
+
+.ch {
+    font-weight: bold;
+    font-size: 2em;
+}
+
+.copyright {
+    margin-top: 2em;
+    font-style: italic;
+    text-indent: 0em;
+}
