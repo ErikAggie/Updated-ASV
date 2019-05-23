@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Util {
-    public static final String ORIGINAL_TEXT_DIR = "originalText";
+    /* package */ static final String ORIGINAL_TEXT_DIR = "originalText";
     public static final String CLEANED_UP_TEXT_DIR = "ASV";
     //"updatedText";
 
@@ -80,8 +80,7 @@ public class Util {
 
     public static final String HEAD_AND_CSS =
             "<html><head>" +
-                "<link type=\"text/css\" href=\"../styles.css\" rel=\"stylesheet\" media=\"all\" />" +
-            "</head><body>";
+                "<link type=\"text/css\" href=\"../styles.css\" rel=\"stylesheet\" media=\"all\" />";
 
     public static final String UNMODIFIED_COPYRIGHT =
             "<div class=copyright>" +

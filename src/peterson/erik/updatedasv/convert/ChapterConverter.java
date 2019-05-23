@@ -26,10 +26,19 @@ public class ChapterConverter {
     public void cleanUpFile() throws IOException {
 
         String bookName = Util.BOOK_NAME_MAP.get(sourceFileKey);
+        int chapterNumber = Integer.parseInt(chapterMatcher.group(1));
+        String chapterTitle =
+                bookName + " " + chapterNumber;
 
         StringBuilder newText = new StringBuilder();
         newText.append(Util.HEAD_AND_CSS);
-        newText.append("<div class=ch>" + bookName + " " + Integer.parseInt(chapterMatcher.group(1)) + "</div>");
+        newText.append("<title>").append(chapterTitle).append("</title>");
+        newText.append("</head><body>");
+
+        // Don't put a chapter number at the top of chapter 1...
+        if ( chapterNumber > 1) {
+            newText.append("<div class=ch>").append(chapterTitle).append("</div>");
+        }
 
         Document originalDoc = Jsoup.parse(sourceFile, "UTF-8", "http://example.com/");
         Elements divElements = originalDoc.getElementsByTag("div");
@@ -66,13 +75,13 @@ public class ChapterConverter {
                 case "ms": // The book headings in Psalms. Might be useful someday, but not today...
                     continue;
                 default:
-                    System.out.println(bookName + " " + chapterMatcher.group(1) + ": Another kind of div class: " + classname);
+                    System.out.println(bookName + " " + chapterNumber + ": Another kind of div class: " + classname);
                     continue;
             }
 
             String text = paragraph.html();
             text = text.replaceAll("\\n", "");
-            newText.append("<div class=\"" + classname + "\" >").append(text).append("</div>");
+            newText.append("<div class=\"").append(classname).append("\" >").append(text).append("</div>");
         }
         newText.append(Util.UNMODIFIED_COPYRIGHT);
         newText.append("</body></html>");
@@ -80,7 +89,9 @@ public class ChapterConverter {
 
         File newBookDirectory = new File(new File(Util.CLEANED_UP_TEXT_DIR), bookName);
         if ( !newBookDirectory.exists()) {
-            newBookDirectory.mkdir();
+            if ( !newBookDirectory.mkdir()) {
+                throw new IOException("Unable to create directory " + newBookDirectory.getAbsolutePath());
+            }
         }
 
         File newFile = new File(newBookDirectory, bookName + chapterMatcher.group(1) + ".htm");
