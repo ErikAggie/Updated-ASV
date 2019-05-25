@@ -35,10 +35,16 @@ public class ChapterConverter {
         newText.append("<title>").append(chapterTitle).append("</title>");
         newText.append("</head><body>");
 
-        // Don't put a chapter number at the top of chapter 1...
-        if ( chapterNumber > 1) {
-            newText.append("<div class=ch>").append(chapterTitle).append("</div>");
-        }
+        // Fixed top portion with chapter number
+        newText.append("<ul class=\"top\">");
+        newText.append("<li class=\"chapterTitle\">").append(chapterTitle).append("</li>");
+        newText.append("</ul>");
+
+        // Fixed bottom portion with previous/next links
+        newText.append("<ul class=\"bottom\">");
+        newText.append("<li class=\"previous\"><a href=previous>Previous</a></li>");
+        newText.append("<li class=\"next\"><a href=previous>Next</a></li>");
+        newText.append("</ul>");
 
         Document originalDoc = Jsoup.parse(sourceFile, "UTF-8", "http://example.com/");
         Elements divElements = originalDoc.getElementsByTag("div");
