@@ -78,6 +78,211 @@ public class Util {
         BOOK_NAME_MAP.put("REV", "Revelation");
     }
 
+    // For cases where the previous chapter isn't <current chapter - 1>, i.e. book boundaries
+    public static final Map<String, String> NEXT_CHAPTER_MAP = new HashMap<>();
+    static {
+
+        NEXT_CHAPTER_MAP.put("Genesis50", "../Exodus/Exodus01.htm");
+        NEXT_CHAPTER_MAP.put("Exodus40.htm", "../Leviticus/Leviticus01.htm");
+        NEXT_CHAPTER_MAP.put("Leviticus27.htm", "../Numbers/Numbers01.htm");
+        NEXT_CHAPTER_MAP.put("Numbers36.htm", "../Deuteronomy/Deuteronomy01.htm");
+        NEXT_CHAPTER_MAP.put("Deuteronomy34.htm", "../Joshua/Joshua01.htm");
+        NEXT_CHAPTER_MAP.put("Joshua24.htm", "../Judges/Judges01.htm");
+        NEXT_CHAPTER_MAP.put("Judges21.htm", "../Ruth/Ruth01.htm");
+        NEXT_CHAPTER_MAP.put("Ruth04.htm", "../1 Samuel/1 Samuel01.htm");
+        NEXT_CHAPTER_MAP.put("1 Samuel31.htm", "../2 Samuel/2 Samuel01.htm");
+        NEXT_CHAPTER_MAP.put("2 Samuel24.htm", "../1 Kings/1 Kings01.htm");
+        NEXT_CHAPTER_MAP.put("1 Kings22.htm", "../2 Kings/2 Kings01.htm");
+        NEXT_CHAPTER_MAP.put("2 Kings25.htm", "../1 Chronicles/1 Chronicles01.htm");
+        NEXT_CHAPTER_MAP.put("1 Chronicles29.htm", "../2 Chronicles/2 Chronicles01.htm");
+        NEXT_CHAPTER_MAP.put("2 Chronicles36.htm", "../Ezra/Ezra01.htm");
+        NEXT_CHAPTER_MAP.put("Ezra10.htm", "../Nehemiah/Nehemiah01.htm");
+        NEXT_CHAPTER_MAP.put("Nehemiah13.htm", "../Esther/Esther01.htm");
+        NEXT_CHAPTER_MAP.put("Esther10.htm", "../Job/Job01.htm");
+        NEXT_CHAPTER_MAP.put("Job42.htm", "../Psalms/Psalms001.htm");
+        NEXT_CHAPTER_MAP.put("Psalms150.htm", "../Proverbs/Proverbs01.htm");
+        NEXT_CHAPTER_MAP.put("Proverbs31.htm", "../Ecclesiastes/Ecclesiastes01.htm");
+        NEXT_CHAPTER_MAP.put("Ecclesiastes12.htm", "../Song of Solomon/Song of Solomon01.htm");
+        NEXT_CHAPTER_MAP.put("Song of Solomon08.htm", "../Isaiah/Isaiah01.htm");
+        NEXT_CHAPTER_MAP.put("Isaiah66.htm", "../Jeremiah/Jeremiah01.htm");
+        NEXT_CHAPTER_MAP.put("Jeremiah52.htm", "../Lamentations/Lamentations01.htm");
+        NEXT_CHAPTER_MAP.put("Lamentations05.htm", "../Ezekiel/Ezekiel01.htm");
+        NEXT_CHAPTER_MAP.put("Ezekiel48.htm", "../Daniel/Daniel01.htm");
+        NEXT_CHAPTER_MAP.put("Daniel12.htm", "../Hosea/Hosea01.htm");
+        NEXT_CHAPTER_MAP.put("Hosea14.htm", "../Joel/Joel01.htm");
+        NEXT_CHAPTER_MAP.put("Joel03.htm", "../Amos/Amos01.htm");
+        NEXT_CHAPTER_MAP.put("Amos09.htm", "../Obadiah/Obadiah01.htm");
+        NEXT_CHAPTER_MAP.put("Obadiah01.htm", "../Jonah/Jonah01.htm");
+        NEXT_CHAPTER_MAP.put("Jonah04.htm", "../Micah/Micah01.htm");
+        NEXT_CHAPTER_MAP.put("Micah07.htm", "../Nahum/Nahum01.htm");
+        NEXT_CHAPTER_MAP.put("Nahum03.htm", "../Habakkuk/Habakkuk01.htm");
+        NEXT_CHAPTER_MAP.put("Habakkuk03.htm", "../Zephaniah/Zephaniah01.htm");
+        NEXT_CHAPTER_MAP.put("Zephaniah03.htm", "../Haggai/Haggai01.htm");
+        NEXT_CHAPTER_MAP.put("Haggai02.htm", "../Zechariah/Zechariah01.htm");
+        NEXT_CHAPTER_MAP.put("Zechariah14.htm", "../Malachi/Malachi01.htm");
+        NEXT_CHAPTER_MAP.put("Malachi04.htm", "../Matthew/Matthew01.htm");
+        NEXT_CHAPTER_MAP.put("Matthew28.htm", "../Mark/Mark01.htm");
+        NEXT_CHAPTER_MAP.put("Mark16.htm", "../Luke/Luke01.htm");
+        NEXT_CHAPTER_MAP.put("Luke24.htm", "../John/John01.htm");
+        NEXT_CHAPTER_MAP.put("John21.htm", "../Acts/Acts01.htm");
+        NEXT_CHAPTER_MAP.put("Acts28.htm", "../Romans/Romans01.htm");
+        NEXT_CHAPTER_MAP.put("Romans16.htm", "../1 Corinthians/1 Corinthians01.htm");
+        NEXT_CHAPTER_MAP.put("1 Corinthians16.htm", "../2 Corinthians/2 Corinthians01.htm");
+        NEXT_CHAPTER_MAP.put("2 Corinthians13.htm", "../Galatians/Galatians01.htm");
+        NEXT_CHAPTER_MAP.put("Galatians06.htm", "../Ephesians/Ephesians01.htm");
+        NEXT_CHAPTER_MAP.put("Ephesians06.htm", "../Philippians/Philippians01.htm");
+        NEXT_CHAPTER_MAP.put("Philippians04.htm", "../Colossians/Colossians01.htm");
+        NEXT_CHAPTER_MAP.put("Colossians04.htm", "../1 Thessalonians/1 Thessalonians01.htm");
+        NEXT_CHAPTER_MAP.put("1 Thessalonians05.htm", "../2 Thessalonians/2 Thessalonians01.htm");
+        NEXT_CHAPTER_MAP.put("2 Thessalonians03.htm", "../1 Timothy/1 Timothy01.htm");
+        NEXT_CHAPTER_MAP.put("1 Timothy06.htm", "../2 Timothy/2 Timothy01.htm");
+        NEXT_CHAPTER_MAP.put("2 Timothy04.htm", "../Titus/Titus01.htm");
+        NEXT_CHAPTER_MAP.put("Titus03.htm", "../Philemon/Philemon01.htm");
+        NEXT_CHAPTER_MAP.put("Philemon01.htm", "../Hebrews/Hebrews01.htm");
+        NEXT_CHAPTER_MAP.put("Hebrews13.htm", "../James/James01.htm");
+        NEXT_CHAPTER_MAP.put("James05.htm", "../1 Peter/1 Peter01.htm");
+        NEXT_CHAPTER_MAP.put("1 Peter05.htm", "../2 Peter/2 Peter01.htm");
+        NEXT_CHAPTER_MAP.put("2 Peter03.htm", "../1 John/1 John01.htm");
+        NEXT_CHAPTER_MAP.put("1 John05.htm", "../2 John/2 John01.htm");
+        NEXT_CHAPTER_MAP.put("2 John01.htm", "../3 John/3 John01.htm");
+        NEXT_CHAPTER_MAP.put("3 John01.htm", "../Jude/Jude01.htm");
+        NEXT_CHAPTER_MAP.put("Jude01.htm", "../Revelation/Revelation01.htm");
+    }
+
+    public static final Map<String, String> PREVIOUS_CHAPTER_MAP = new HashMap<>();
+    static {
+
+        PREVIOUS_CHAPTER_MAP.put("Revelation01.htm", "../Jude/Jude01.htm");
+        Jude/Jude01.htm
+        3 John/3 John01.htm
+        3 John/3 John01.htm
+        2 John/2 John01.htm
+        2 John/2 John01.htm
+        1 John/1 John05.htm
+        1 John/1 John01.htm
+        2 Peter/2 Peter03.htm
+        2 Peter/2 Peter01.htm
+        1 Peter/1 Peter05.htm
+        1 Peter/1 Peter01.htm
+        James/James05.htm
+        James/James01.htm
+        Hebrews/Hebrews13.htm
+        Hebrews/Hebrews01.htm
+        Philemon/Philemon01.htm
+        Philemon/Philemon01.htm
+        Titus/Titus03.htm
+        Titus/Titus01.htm
+        2 Timothy/2 Timothy04.htm
+        2 Timothy/2 Timothy01.htm
+        1 Timothy/1 Timothy06.htm
+        1 Timothy/1 Timothy01.htm
+        2 Thessalonians/2 Thessalonians03.htm
+        2 Thessalonians/2 Thessalonians01.htm
+        1 Thessalonians/1 Thessalonians05.htm
+        1 Thessalonians/1 Thessalonians01.htm
+        Colossians/Colossians04.htm
+        Colossians/Colossians01.htm
+        Philippians/Philippians04.htm
+        Philippians/Philippians01.htm
+        Ephesians/Ephesians06.htm
+        Ephesians/Ephesians01.htm
+        Galatians/Galatians06.htm
+        Galatians/Galatians01.htm
+        2 Corinthians/2 Corinthians13.htm
+        2 Corinthians/2 Corinthians01.htm
+        1 Corinthians/1 Corinthians16.htm
+        1 Corinthians/1 Corinthians01.htm
+        Romans/Romans16.htm
+        Romans/Romans01.htm
+        Acts/Acts28.htm
+        Acts/Acts01.htm
+        John/John21.htm
+        John/John01.htm
+        Luke/Luke24.htm
+        Luke/Luke01.htm
+        Mark/Mark16.htm
+        Mark/Mark01.htm
+        Matthew/Matthew28.htm
+        Matthew/Matthew01.htm
+        Malachi/Malachi04.htm
+        Malachi/Malachi01.htm
+        Zechariah/Zechariah14.htm
+        Zechariah/Zechariah01.htm
+        Haggai/Haggai02.htm
+        Haggai/Haggai01.htm
+        Zephaniah/Zephaniah03.htm
+        Zephaniah/Zephaniah01.htm
+        Habakkuk/Habakkuk03.htm
+        Habakkuk/Habakkuk01.htm
+        Nahum/Nahum03.htm
+        Nahum/Nahum01.htm
+        Micah/Micah07.htm
+        Micah/Micah01.htm
+        Jonah/Jonah04.htm
+        Jonah/Jonah01.htm
+        Obadiah/Obadiah01.htm
+        Obadiah/Obadiah01.htm
+        Amos/Amos09.htm
+        Amos/Amos01.htm
+        Joel/Joel03.htm
+        Joel/Joel01.htm
+        Hosea/Hosea14.htm
+        Hosea/Hosea01.htm
+        Daniel/Daniel12.htm
+        Daniel/Daniel01.htm
+        Ezekiel/Ezekiel48.htm
+        Ezekiel/Ezekiel01.htm
+        Lamentations/Lamentations05.htm
+        Lamentations/Lamentations01.htm
+        Jeremiah/Jeremiah52.htm
+        Jeremiah/Jeremiah01.htm
+        Isaiah/Isaiah66.htm
+        Isaiah/Isaiah01.htm
+        Song of Solomon/Song of Solomon08.htm
+        Song of Solomon/Song of Solomon01.htm
+        Ecclesiastes/Ecclesiastes12.htm
+        Ecclesiastes/Ecclesiastes01.htm
+        Proverbs/Proverbs31.htm
+        Proverbs/Proverbs01.htm
+        Psalms/Psalms150.htm
+        Psalms/Psalms001.htm
+        Job/Job42.htm
+        Job/Job01.htm
+        Esther/Esther10.htm
+        Esther/Esther01.htm
+        Nehemiah/Nehemiah13.htm
+        Nehemiah/Nehemiah01.htm
+        Ezra/Ezra10.htm
+        Ezra/Ezra01.htm
+        2 Chronicles/2 Chronicles36.htm
+        2 Chronicles/2 Chronicles01.htm
+        1 Chronicles/1 Chronicles29.htm
+        1 Chronicles/1 Chronicles01.htm
+        2 Kings/2 Kings25.htm
+        2 Kings/2 Kings01.htm
+        1 Kings/1 Kings22.htm
+        1 Kings/1 Kings01.htm
+        2 Samuel/2 Samuel24.htm
+        2 Samuel/2 Samuel01.htm
+        1 Samuel/1 Samuel31.htm
+        1 Samuel/1 Samuel01.htm
+        Ruth/Ruth04.htm
+        Ruth/Ruth01.htm
+        Judges/Judges21.htm
+        Judges/Judges01.htm
+        Joshua/Joshua24.htm
+        Joshua/Joshua01.htm
+        Deuteronomy/Deuteronomy34.htm
+        Deuteronomy/Deuteronomy01.htm
+        Numbers/Numbers36.htm
+        Numbers/Numbers01.htm
+        Leviticus/Leviticus27.htm
+        Leviticus/Leviticus01.htm
+        Exodus/Exodus40.htm
+        Exodus/Exodus01.htm
+        Genesis/Genesis50.htm
+    }
+
     public static final String HEAD_AND_CSS =
             "<html><head>" +
                 "<link type=\"text/css\" href=\"../styles.css\" rel=\"stylesheet\" media=\"all\" />";

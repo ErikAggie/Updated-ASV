@@ -101,6 +101,7 @@ public class ChapterConverter {
         }
 
         File newFile = new File(newBookDirectory, bookName + chapterMatcher.group(1) + ".htm");
+        System.out.println(newBookDirectory.getName() + "/" + newFile.getName());
         FileWriter fileWriter = new FileWriter(newFile);
         fileWriter.append(newText.toString());
         fileWriter.close();
