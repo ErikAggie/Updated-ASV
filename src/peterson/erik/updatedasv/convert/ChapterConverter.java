@@ -16,16 +16,35 @@ public class ChapterConverter {
     private final File sourceFile;
     private final Matcher chapterMatcher;
     private final String sourceFileKey;
+    private final String destinationFileName;
 
     public ChapterConverter(File sourceFile, Matcher chapterMatcher, String sourceFileKey) {
         this.sourceFile = sourceFile;
         this.chapterMatcher = chapterMatcher;
         this.sourceFileKey = sourceFileKey;
+        destinationFileName = getDestinationFileName(Integer.parseInt(chapterMatcher.group(1)));
+    }
+
+    private String getDestinationFileName(int chapterNumber) {
+        int chapterNumberLength = chapterMatcher.group(1).length();
+        String chapterNumberString;
+        switch ( chapterNumberLength) {
+            case 2:
+                chapterNumberString = String.format("%02d", chapterNumber);
+                break;
+            case 3:
+                chapterNumberString = String.format("%03d", chapterNumber);
+                break;
+            default:
+                throw new UnsupportedOperationException("Book chapter of " + chapterNumberLength + " characters is not supported!");
+        }
+        return Util.BOOK_NAME_MAP.get(sourceFileKey) + chapterNumberString + ".htm";
     }
 
     public void cleanUpFile() throws IOException {
-
         String bookName = Util.BOOK_NAME_MAP.get(sourceFileKey);
+        File newBookDirectory = new File(new File(Util.CLEANED_UP_TEXT_DIR), bookName);
+
         int chapterNumber = Integer.parseInt(chapterMatcher.group(1));
         String chapterTitle =
                 bookName + " " + chapterNumber;
@@ -42,8 +61,26 @@ public class ChapterConverter {
 
         // Fixed bottom portion with previous/next links
         newText.append("<ul class=\"bottom\">");
-        newText.append("<li class=\"previous\"><a href=previous>Previous</a></li>");
-        newText.append("<li class=\"next\"><a href=previous>Next</a></li>");
+
+        //System.out.println("Checking for " + destinationFileName);
+        String previousChapterPath = Util.PREVIOUS_CHAPTER_MAP.get(destinationFileName);
+        if ( previousChapterPath == null) {
+            previousChapterPath = getDestinationFileName(Integer.parseInt(chapterMatcher.group(1))-1);
+        }
+        File previousFile = new File(newBookDirectory, previousChapterPath);
+        if ( previousFile.exists()) {
+            newText.append("<li class=\"previous\"><a href=\"" + previousChapterPath + "\">Previous</a></li>");
+        }
+
+
+        String nextChapterPath = Util.NEXT_CHAPTER_MAP.get(destinationFileName);
+        if ( nextChapterPath == null) {
+            nextChapterPath = getDestinationFileName(Integer.parseInt(chapterMatcher.group(1))+1);
+        }
+        File nextFile = new File(newBookDirectory, nextChapterPath);
+       if ( nextFile.exists()) {
+           newText.append("<li class=\"next\"><a href=\"" + nextChapterPath + "\">Next</a></li>");
+        }
         newText.append("</ul>");
 
         Document originalDoc = Jsoup.parse(sourceFile, "UTF-8", "http://example.com/");
@@ -93,15 +130,14 @@ public class ChapterConverter {
         newText.append("</body></html>");
 //                    System.out.println("Now have " + newText.toString());
 
-        File newBookDirectory = new File(new File(Util.CLEANED_UP_TEXT_DIR), bookName);
         if ( !newBookDirectory.exists()) {
             if ( !newBookDirectory.mkdir()) {
                 throw new IOException("Unable to create directory " + newBookDirectory.getAbsolutePath());
             }
         }
 
-        File newFile = new File(newBookDirectory, bookName + chapterMatcher.group(1) + ".htm");
-        System.out.println(newBookDirectory.getName() + "/" + newFile.getName());
+        File newFile = new File(newBookDirectory, destinationFileName);
+        //System.out.println(newBookDirectory.getName() + "/" + newFile.getName());
         FileWriter fileWriter = new FileWriter(newFile);
         fileWriter.append(newText.toString());
         fileWriter.close();

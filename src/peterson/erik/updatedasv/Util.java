@@ -82,7 +82,7 @@ public class Util {
     public static final Map<String, String> NEXT_CHAPTER_MAP = new HashMap<>();
     static {
 
-        NEXT_CHAPTER_MAP.put("Genesis50", "../Exodus/Exodus01.htm");
+        NEXT_CHAPTER_MAP.put("Genesis50.htm", "../Exodus/Exodus01.htm");
         NEXT_CHAPTER_MAP.put("Exodus40.htm", "../Leviticus/Leviticus01.htm");
         NEXT_CHAPTER_MAP.put("Leviticus27.htm", "../Numbers/Numbers01.htm");
         NEXT_CHAPTER_MAP.put("Numbers36.htm", "../Deuteronomy/Deuteronomy01.htm");
