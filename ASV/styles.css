@@ -99,3 +99,20 @@ div {
     font-style: italic;
     text-indent: 0em;
 }
+
+.popup	{
+    position:absolute;
+    display:none;
+    color: #000000;
+    background-color:#f0f0f0;
+    border:.1em solid #333;
+    width:50%;
+    height:auto;
+    padding:1em;
+    line-height:1em;
+    text-indent:0em;
+    margin 0.5em 0.5em 0.5em 0.5em;
+}
+.notemark:hover .popup {
+    display:block;
+}

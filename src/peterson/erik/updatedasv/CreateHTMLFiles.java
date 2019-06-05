@@ -1,16 +1,9 @@
 package peterson.erik.updatedasv;
 
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
 import peterson.erik.updatedasv.convert.ChapterConverter;
 
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -33,6 +26,7 @@ import java.util.regex.Pattern;
 
         Set<String> originalFileKeys = Util.BOOK_NAME_MAP.keySet();
         File[] files = new File(Util.ORIGINAL_TEXT_DIR).listFiles();
+        assert files != null;
         for ( File file : files) {
             String originalFilename = file.getName();
             Matcher chapterMatcher = CHAPTER_PATTERN.matcher(originalFilename);
@@ -48,10 +42,11 @@ import java.util.regex.Pattern;
                 if ( originalFilename.startsWith(key)) {
 //                    System.out.println("Found " + BOOK_NAME_MAP.get(key) + " " + chapterMatcher.group(1));
                     ChapterConverter chapterConverter = new ChapterConverter(file, chapterMatcher, key);
-                    chapterConverter.cleanUpFile();
+                    chapterConverter.processFile();
                     break;
                 }
             }
         }
+        ChapterConverter.printMatches();
     }
 }

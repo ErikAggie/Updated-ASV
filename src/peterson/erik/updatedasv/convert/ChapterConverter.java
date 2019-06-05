@@ -9,7 +9,9 @@ import peterson.erik.updatedasv.Util;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.*;
 import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class ChapterConverter {
 
@@ -18,22 +20,37 @@ public class ChapterConverter {
     private final String sourceFileKey;
     private final String destinationFileName;
 
+    private final int chapterNumber;
+    private final String bookName;
+    private final File newBookDirectory;
+    private final String chapterTitle;
+
+    // Used in searching for stuff. Should only use one such method at a time!
+    private static final Map<String, String> SEARCH_MAP = new HashMap<>();
+
     public ChapterConverter(File sourceFile, Matcher chapterMatcher, String sourceFileKey) {
         this.sourceFile = sourceFile;
         this.chapterMatcher = chapterMatcher;
         this.sourceFileKey = sourceFileKey;
-        destinationFileName = getDestinationFileName(Integer.parseInt(chapterMatcher.group(1)));
+
+        chapterNumber = Integer.parseInt(chapterMatcher.group(1));
+        destinationFileName = getDestinationFileName(chapterNumber);
+
+        bookName = Util.BOOK_NAME_MAP.get(sourceFileKey);
+        newBookDirectory = new File(new File(Util.CLEANED_UP_TEXT_DIR), bookName);
+        chapterTitle =
+                bookName + " " + chapterNumber;
     }
 
-    private String getDestinationFileName(int chapterNumber) {
+    private String getDestinationFileName(int chapterToLookUp) {
         int chapterNumberLength = chapterMatcher.group(1).length();
         String chapterNumberString;
         switch ( chapterNumberLength) {
             case 2:
-                chapterNumberString = String.format("%02d", chapterNumber);
+                chapterNumberString = String.format("%02d", chapterToLookUp);
                 break;
             case 3:
-                chapterNumberString = String.format("%03d", chapterNumber);
+                chapterNumberString = String.format("%03d", chapterToLookUp);
                 break;
             default:
                 throw new UnsupportedOperationException("Book chapter of " + chapterNumberLength + " characters is not supported!");
@@ -41,47 +58,18 @@ public class ChapterConverter {
         return Util.BOOK_NAME_MAP.get(sourceFileKey) + chapterNumberString + ".htm";
     }
 
-    public void cleanUpFile() throws IOException {
-        String bookName = Util.BOOK_NAME_MAP.get(sourceFileKey);
-        File newBookDirectory = new File(new File(Util.CLEANED_UP_TEXT_DIR), bookName);
+    /**
+     * Does the cleanup of the file and then the conversion
+     * @throws IOException If there was an error reading/writing
+     */
+    public void processFile() throws IOException {
+        String cleanedUpText = cleanUpFile();
+    }
 
-        int chapterNumber = Integer.parseInt(chapterMatcher.group(1));
-        String chapterTitle =
-                bookName + " " + chapterNumber;
+    private String cleanUpFile() throws IOException {
 
         StringBuilder newText = new StringBuilder();
-        newText.append(Util.HEAD_AND_CSS);
-        newText.append("<title>").append(chapterTitle).append("</title>");
-        newText.append("</head><body>");
-
-        // Fixed top portion with chapter number
-        newText.append("<ul class=\"top\">");
-        newText.append("<li class=\"chapterTitle\">").append(chapterTitle).append("</li>");
-        newText.append("</ul>");
-
-        // Fixed bottom portion with previous/next links
-        newText.append("<ul class=\"bottom\">");
-
-        //System.out.println("Checking for " + destinationFileName);
-        String previousChapterPath = Util.PREVIOUS_CHAPTER_MAP.get(destinationFileName);
-        if ( previousChapterPath == null) {
-            previousChapterPath = getDestinationFileName(Integer.parseInt(chapterMatcher.group(1))-1);
-        }
-        File previousFile = new File(newBookDirectory, previousChapterPath);
-        if ( previousFile.exists()) {
-            newText.append("<li class=\"previous\"><a href=\"" + previousChapterPath + "\">Previous</a></li>");
-        }
-
-
-        String nextChapterPath = Util.NEXT_CHAPTER_MAP.get(destinationFileName);
-        if ( nextChapterPath == null) {
-            nextChapterPath = getDestinationFileName(Integer.parseInt(chapterMatcher.group(1))+1);
-        }
-        File nextFile = new File(newBookDirectory, nextChapterPath);
-       if ( nextFile.exists()) {
-           newText.append("<li class=\"next\"><a href=\"" + nextChapterPath + "\">Next</a></li>");
-        }
-        newText.append("</ul>");
+        addHeaderInfo(newText);
 
         Document originalDoc = Jsoup.parse(sourceFile, "UTF-8", "http://example.com/");
         Elements divElements = originalDoc.getElementsByTag("div");
@@ -136,12 +124,81 @@ public class ChapterConverter {
             }
         }
 
+        // Now that we have the text, optionally do a search
+        //findAddedMaterial(newText.toString());
+        //findTypesOfSpans(newText.toString());
+
         File newFile = new File(newBookDirectory, destinationFileName);
         //System.out.println(newBookDirectory.getName() + "/" + newFile.getName());
         FileWriter fileWriter = new FileWriter(newFile);
         fileWriter.append(newText.toString());
         fileWriter.close();
 
+        return newText.toString();
     }
 
+    private void addHeaderInfo(StringBuilder newText) {
+        newText.append(Util.HEAD_AND_CSS);
+        newText.append("<title>").append(chapterTitle).append("</title>");
+        newText.append("</head><body>");
+
+        // Fixed top portion with chapter number
+        newText.append("<ul class=\"top\">");
+        newText.append("<li class=\"chapterTitle\">").append(chapterTitle).append("</li>");
+        newText.append("</ul>");
+
+        // Fixed bottom portion with previous/next links
+        newText.append("<ul class=\"bottom\">");
+
+        //System.out.println("Checking for " + destinationFileName);
+        String previousChapterPath = Util.PREVIOUS_CHAPTER_MAP.get(destinationFileName);
+        if ( previousChapterPath == null) {
+            previousChapterPath = getDestinationFileName(chapterNumber-1);
+        }
+        File previousFile = new File(newBookDirectory, previousChapterPath);
+        if ( previousFile.exists()) {
+            newText.append("<li class=\"previous\"><a href=\"").append(previousChapterPath).append("\">Previous</a></li>");
+        }
+
+
+        String nextChapterPath = Util.NEXT_CHAPTER_MAP.get(destinationFileName);
+        if ( nextChapterPath == null) {
+            nextChapterPath = getDestinationFileName(Integer.parseInt(chapterMatcher.group(1))+1);
+        }
+        File nextFile = new File(newBookDirectory, nextChapterPath);
+        if ( nextFile.exists()) {
+            newText.append("<li class=\"next\"><a href=\"").append(nextChapterPath).append("\">Next</a></li>");
+        }
+        newText.append("</ul>");
+
+    }
+
+    //-----------------------------------------------------------------------------------------------------------
+    // These are searches used at various points in the update effort
+    //-----------------------------------------------------------------------------------------------------------
+    private static final Pattern ADDED_TEXT_PATTERN = Pattern.compile("<span class=\"add\">(.*?)</span>");
+    private static final Pattern SPAN_TYPE_PATTERN = Pattern.compile("<span class=\"(.*?)\"");
+
+    private void findAddedMaterial(String text) {
+        Matcher matcher = ADDED_TEXT_PATTERN.matcher(text);
+        while ( matcher.find()) {
+            SEARCH_MAP.put(matcher.group(1), null);
+        }
+    }
+
+    private void findTypesOfSpans(String text) {
+        Matcher matcher = SPAN_TYPE_PATTERN.matcher(text);
+        while ( matcher.find()) {
+            SEARCH_MAP.put(matcher.group(1), null);
+        }
+    }
+
+    public static void printMatches() {
+        System.out.println("Matches:");
+        List<String> keys = new ArrayList<>(SEARCH_MAP.keySet());
+        Collections.sort(keys);
+        for ( String key : keys) {
+            System.out.println(key);
+        }
+    }
 }
