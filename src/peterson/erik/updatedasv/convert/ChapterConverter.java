@@ -64,8 +64,12 @@ public class ChapterConverter {
      */
     public void processFile() throws IOException {
         String cleanedUpText = cleanUpFile();
+        updateText(cleanedUpText);
     }
 
+    //-------------------------------------------------------------------------------
+    // Cleaning up the file
+    //-------------------------------------------------------------------------------
     private String cleanUpFile() throws IOException {
 
         StringBuilder newText = new StringBuilder();
@@ -171,6 +175,41 @@ public class ChapterConverter {
         }
         newText.append("</ul>");
 
+    }
+
+    //-----------------------------------------------------------------------------------------------------------
+    // Converting the file to be easier to read
+    //-----------------------------------------------------------------------------------------------------------
+    private void updateText(String cleanedUpText) {
+        List<Segment> segments = splitIntoSegment(cleanedUpText);
+    }
+
+    private List<Segment> splitIntoSegment(String textToSplit) {
+        List<Segment> segments = new LinkedList<>();
+        while (!textToSplit.isEmpty()) {
+            int locationOfOpenBracket = textToSplit.indexOf('<');
+            if ( locationOfOpenBracket < 0) {
+                // Nothing left but text
+                segments.add(new TextSegment(textToSplit));
+                break;
+            } else if ( locationOfOpenBracket == 0) {
+                // Found a bracket!
+                int locationOfCloseBracket = textToSplit.indexOf(">");
+                if ( locationOfCloseBracket < 0) {
+                    throw new IllegalArgumentException("Open bracket without close bracket! : " + textToSplit);
+                }
+                segments.add(new NonTextSegment(textToSplit.substring(locationOfOpenBracket, locationOfCloseBracket+1)));
+                if ( textToSplit.length() == locationOfCloseBracket+1) {
+                    // We're done!
+                    break;
+                }
+                textToSplit = textToSplit.substring(locationOfCloseBracket+1);
+            } else {
+                segments.add(new TextSegment(textToSplit.substring(0, locationOfOpenBracket)));
+                textToSplit = textToSplit.substring(locationOfOpenBracket);
+            }
+        }
+        return segments;
     }
 
     //-----------------------------------------------------------------------------------------------------------
