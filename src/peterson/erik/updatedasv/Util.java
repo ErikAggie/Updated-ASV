@@ -1,6 +1,10 @@
 package peterson.erik.updatedasv;
 
+import peterson.erik.updatedasv.convert.ConversionItem;
+
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 
 public class Util {
@@ -234,4 +238,17 @@ public class Util {
                     "This text is based on the American Standard Version, which is in the public domain. " +
                     "This modification is Copyright 2019 by Erik Peterson. All rights reserved. " +
                     "Future permissions will likely be more open.</div>";
+
+    public static final List<ConversionItem> CONVERSION_ITEMS = new LinkedList<>();
+    static {
+        // These changes are denoted like this:
+        // * The text to match (split into groups for word reordering
+        // * The corresponding text sections--in the same order; this is important in case the text crosses a div or span boundary
+        // * The order to put the new segments in (i.e. if there is any reordering)
+        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"didst", "not", "thou"}, new String[] {"did", "not", "you"}, new int[] {0, 2, 1}));
+        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"Didst", "not", "thou"}, new String[] {"Did", "not", "you"}, new int[] {0, 2, 1}));
+
+        // Test for items that cover multiple segments
+        //CONVERSION_ITEMS.add(new ConversionItem(new String[] {"unto thy handmaid, saying, Assuredly"}, new String[] {"nothing"}, new int[] {0}));
+    }
 }

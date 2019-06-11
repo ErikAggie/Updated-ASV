@@ -118,6 +118,7 @@ public class ChapterConverter {
             text = text.replaceAll("\\n", "");
             newText.append("<div class=\"").append(classname).append("\" >").append(text).append("</div>");
         }
+        // TODO: Don't put this in the text that we convert from...
         newText.append(Util.UNMODIFIED_COPYRIGHT);
         newText.append("</body></html>");
 //                    System.out.println("Now have " + newText.toString());
@@ -182,6 +183,9 @@ public class ChapterConverter {
     //-----------------------------------------------------------------------------------------------------------
     private void updateText(String cleanedUpText) {
         List<Segment> segments = splitIntoSegment(cleanedUpText);
+        for ( ConversionItem item : Util.CONVERSION_ITEMS) {
+            item.makeConversion(segments);
+        }
     }
 
     private List<Segment> splitIntoSegment(String textToSplit) {
