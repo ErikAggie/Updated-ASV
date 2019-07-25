@@ -187,9 +187,9 @@ public class ChapterConverter {
     //-----------------------------------------------------------------------------------------------------------
     private void updateText(String textToUpdate) throws IOException {
         List<Segment> segments = splitIntoSegment(textToUpdate);
-        /*for ( ConversionItem item : Util.CONVERSION_ITEMS) {
+        for ( ConversionItem item : Util.CONVERSION_ITEMS) {
             item.makeConversion(segments);
-        }*/
+        }
 
         StringBuilder updatedTextBuilder = new StringBuilder();
         for ( Segment segment : segments) {
