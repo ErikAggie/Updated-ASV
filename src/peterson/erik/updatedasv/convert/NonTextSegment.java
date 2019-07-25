@@ -24,4 +24,9 @@ public class NonTextSegment implements Segment {
     public String getFullText() {
         return text;
     }
+
+    @Override
+    public void updateText(String newText) {
+        throw new RuntimeException("Can't update a non-text segment!");
+    }
 }

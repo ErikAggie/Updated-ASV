@@ -24,4 +24,9 @@ public class TextSegment implements Segment {
     public String getFullText() {
         return text;
     }
+
+    @Override
+    public void updateText(String newText) {
+        this.text = newText;
+    }
 }

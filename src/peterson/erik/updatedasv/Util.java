@@ -10,6 +10,7 @@ import java.util.Map;
 public class Util {
     /* package */ static final String ORIGINAL_TEXT_DIR = "originalText";
     public static final String CLEANED_UP_TEXT_DIR = "ASV";
+    public static final String UPDATED_TEXT_DIR = "Updated-ASV";
     //"updatedText";
 
     public static final Map<String, String> BOOK_NAME_MAP = new HashMap<>();
@@ -234,7 +235,7 @@ public class Util {
                     "at the end of your quotation.</div>";
 
     public static final String MODIFIED_COPYRIGHT =
-            "<div class=copyright" +
+            "<div class=copyright>" +
                     "This text is based on the American Standard Version, which is in the public domain. " +
                     "This modification is Copyright 2019 by Erik Peterson. All rights reserved. " +
                     "Future permissions will likely be more open.</div>";
@@ -245,8 +246,59 @@ public class Util {
         // * The text to match (split into groups for word reordering
         // * The corresponding text sections--in the same order; this is important in case the text crosses a div or span boundary
         // * The order to put the new segments in (i.e. if there is any reordering)
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"didst", "not", "thou"}, new String[] {"did", "not", "you"}, new int[] {0, 2, 1}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"Didst", "not", "thou"}, new String[] {"Did", "not", "you"}, new int[] {0, 2, 1}));
+
+        /*
+         * Six-word replacements
+         */
+        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"an angel of the Lord appeareth"}, new String[] {"an angel of the Lord appeared"}, new int[] {0}));
+
+        /*
+         * Five-word replacements
+         */
+
+
+        /*
+         * Four-word replacements
+         */
+        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"Art in no wise"}, new String[] {"Are in no wise"}, new int[] {0}));
+        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"mocked of the Wise-men"}, new String[] {"mocked by the Wise-men"}, new int[] {0}));
+
+        /*
+         * Three-word replacements
+         */
+        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"be thou there"}, new String[] {"stay there"}, new int[] {0}));
+
+        /*
+         * Two-word replacements
+         */
+        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"thou son"}, new String[] {"son"}, new int[] {0}));
+        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"come forth"}, new String[] {"come"}, new int[] {0}));
+        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"cometh forth"}, new String[] {"comes"}, new int[] {0}));
+
+        /*
+         * Single-word replacements (place last so longer matches are done first...)
+         */
+        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"beget"}, new String[] {"father"}, new int[] {0}));
+        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"begat"}, new String[] {"fathered"}, new int[] {0}));
+        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"privily"}, new String[] {"privately"}, new int[] {0}));
+        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"thy"}, new String[] {"your"}, new int[] {0}));
+        // Make sure "shall" comes before "shalt", otherwise "shalt" will go to "will"
+        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"shall"}, new String[] {"will"}, new int[] {0}));
+        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"shalt"}, new String[] {"shall"}, new int[] {0}));
+        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"till"}, new String[] {"until"}, new int[] {0}));
+        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"unto"}, new String[] {"to"}, new int[] {0}));
+        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"thee"}, new String[] {"you"}, new int[] {0}));
+        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"thou"}, new String[] {"you"}, new int[] {0}));
+        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"ye"}, new String[] {"you"}, new int[] {0}));
+        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"thither"}, new String[] {"there"}, new int[] {0}));
+        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"Judæa"}, new String[] {"Judea"}, new int[] {0}));
+        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"Wise-men"}, new String[] {"wise men"}, new int[] {0}));
+
+
+
+
+        //CONVERSION_ITEMS.add(new ConversionItem(new String[] {"didst", "not", "thou"}, new String[] {"did", "not", "you"}, new int[] {0, 2, 1}));
+        //CONVERSION_ITEMS.add(new ConversionItem(new String[] {"Didst", "not", "thou"}, new String[] {"Did", "not", "you"}, new int[] {0, 2, 1}));
 
         // Test for items that cover multiple segments
         //CONVERSION_ITEMS.add(new ConversionItem(new String[] {"unto thy handmaid, saying, Assuredly"}, new String[] {"nothing"}, new int[] {0}));

@@ -1,0 +1,118 @@
+body {
+    margin: 70px 0px 60px 0px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #f0f0f0;
+  position: fixed;
+  width: 100%;
+}
+
+ul.top {
+  top: 0;
+}
+
+ul.bottom {
+  bottom: 0;
+}
+
+li {
+  display: block;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 1.3em;
+}
+
+li.previous {
+  float: left;
+}
+
+li.chapterTitle {
+  width: 100%;
+  float: none;
+  font-weight: bold;
+  font-size: 1.8em;
+}
+
+li.next {
+  float: right;
+}
+
+.mt {
+    text-align: center;
+    line-height: 1.8;
+    font-size: 2.5em;
+    font-weight: bold;
+}
+
+div {
+    margin-top: .1em;
+    margin-left: 3em;
+    margin-right: 3em;
+    line-height: 1.5em;
+    text-indent: 1.5em;
+    font-size: 1.3em;
+}
+
+.p {
+}
+
+.d {
+    font-style: italic;
+    text-indent: 3em;
+}
+
+.q {
+    text-indent: 2em;
+}
+
+.q2 {
+    text-indent: 4em;
+}
+
+.qs {
+    text-align: right;
+}
+
+.add {
+    font-style: italic;
+}
+
+.verse {
+    font-weight: bold;
+}
+
+.ch {
+    font-weight: bold;
+    font-size: 2em;
+    text-indent: 0em;
+    text-align: center;
+}
+
+.copyright {
+    margin-top: 2em;
+    font-style: italic;
+    text-indent: 0em;
+}
+
+.popup	{
+    position:absolute;
+    display:none;
+    color: #000000;
+    background-color:#f0f0f0;
+    border:.1em solid #333;
+    width:50%;
+    height:auto;
+    padding:1em;
+    line-height:1em;
+    text-indent:0em;
+    margin 0.5em 0.5em 0.5em 0.5em;
+}
+.notemark:hover .popup {
+    display:block;
+}

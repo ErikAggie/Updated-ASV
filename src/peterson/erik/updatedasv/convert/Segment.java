@@ -4,4 +4,5 @@ public interface Segment {
     String getPlainText();
     int getPlainTextLength();
     String getFullText();
+    void updateText(String newText);
 }

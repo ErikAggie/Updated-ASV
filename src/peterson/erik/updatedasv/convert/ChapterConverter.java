@@ -22,7 +22,8 @@ public class ChapterConverter {
 
     private final int chapterNumber;
     private final String bookName;
-    private final File newBookDirectory;
+    private final File cleanedUpDirectory;
+    private final File updatedDirectory;
     private final String chapterTitle;
 
     // Used in searching for stuff. Should only use one such method at a time!
@@ -37,7 +38,8 @@ public class ChapterConverter {
         destinationFileName = getDestinationFileName(chapterNumber);
 
         bookName = Util.BOOK_NAME_MAP.get(sourceFileKey);
-        newBookDirectory = new File(new File(Util.CLEANED_UP_TEXT_DIR), bookName);
+        cleanedUpDirectory = new File(new File(Util.CLEANED_UP_TEXT_DIR), bookName);
+        updatedDirectory = new File(new File(Util.UPDATED_TEXT_DIR), bookName);
         chapterTitle =
                 bookName + " " + chapterNumber;
     }
@@ -77,9 +79,9 @@ public class ChapterConverter {
 
         Document originalDoc = Jsoup.parse(sourceFile, "UTF-8", "http://example.com/");
         Elements divElements = originalDoc.getElementsByTag("div");
-        for ( Element paragraph : divElements) {
+        for (Element paragraph : divElements) {
             String classname = paragraph.className();
-            switch ( classname) {
+            switch (classname) {
                 // We want
                 //   'p' (paragraph),
                 //   'q' (quote),
@@ -118,14 +120,17 @@ public class ChapterConverter {
             text = text.replaceAll("\\n", "");
             newText.append("<div class=\"").append(classname).append("\" >").append(text).append("</div>");
         }
-        // TODO: Don't put this in the text that we convert from...
-        newText.append(Util.UNMODIFIED_COPYRIGHT);
-        newText.append("</body></html>");
 //                    System.out.println("Now have " + newText.toString());
 
-        if ( !newBookDirectory.exists()) {
-            if ( !newBookDirectory.mkdir()) {
-                throw new IOException("Unable to create directory " + newBookDirectory.getAbsolutePath());
+        writeFile(cleanedUpDirectory, newText.toString() + Util.UNMODIFIED_COPYRIGHT + "</body></html>");
+        return newText.toString();
+    }
+
+    private void writeFile(File directory, String textToWrite) throws IOException {
+
+        if ( !directory.exists()) {
+            if ( !directory.mkdirs()) {
+                throw new IOException("Unable to create directory " + directory.getAbsolutePath());
             }
         }
 
@@ -133,13 +138,12 @@ public class ChapterConverter {
         //findAddedMaterial(newText.toString());
         //findTypesOfSpans(newText.toString());
 
-        File newFile = new File(newBookDirectory, destinationFileName);
-        //System.out.println(newBookDirectory.getName() + "/" + newFile.getName());
+        File newFile = new File(directory, destinationFileName);
+        //System.out.println(cleanedUpDirectory.getName() + "/" + newFile.getName());
         FileWriter fileWriter = new FileWriter(newFile);
-        fileWriter.append(newText.toString());
+        fileWriter.append(textToWrite);
         fileWriter.close();
 
-        return newText.toString();
     }
 
     private void addHeaderInfo(StringBuilder newText) {
@@ -160,7 +164,7 @@ public class ChapterConverter {
         if ( previousChapterPath == null) {
             previousChapterPath = getDestinationFileName(chapterNumber-1);
         }
-        File previousFile = new File(newBookDirectory, previousChapterPath);
+        File previousFile = new File(cleanedUpDirectory, previousChapterPath);
         if ( previousFile.exists()) {
             newText.append("<li class=\"previous\"><a href=\"").append(previousChapterPath).append("\">Previous</a></li>");
         }
@@ -170,7 +174,7 @@ public class ChapterConverter {
         if ( nextChapterPath == null) {
             nextChapterPath = getDestinationFileName(Integer.parseInt(chapterMatcher.group(1))+1);
         }
-        File nextFile = new File(newBookDirectory, nextChapterPath);
+        File nextFile = new File(cleanedUpDirectory, nextChapterPath);
         if ( nextFile.exists()) {
             newText.append("<li class=\"next\"><a href=\"").append(nextChapterPath).append("\">Next</a></li>");
         }
@@ -181,11 +185,17 @@ public class ChapterConverter {
     //-----------------------------------------------------------------------------------------------------------
     // Converting the file to be easier to read
     //-----------------------------------------------------------------------------------------------------------
-    private void updateText(String cleanedUpText) {
-        List<Segment> segments = splitIntoSegment(cleanedUpText);
-        for ( ConversionItem item : Util.CONVERSION_ITEMS) {
+    private void updateText(String textToUpdate) throws IOException {
+        List<Segment> segments = splitIntoSegment(textToUpdate);
+        /*for ( ConversionItem item : Util.CONVERSION_ITEMS) {
             item.makeConversion(segments);
+        }*/
+
+        StringBuilder updatedTextBuilder = new StringBuilder();
+        for ( Segment segment : segments) {
+            updatedTextBuilder.append(segment.getFullText());
         }
+        writeFile(updatedDirectory, updatedTextBuilder.toString() + Util.MODIFIED_COPYRIGHT + "</body></html>");
     }
 
     private List<Segment> splitIntoSegment(String textToSplit) {

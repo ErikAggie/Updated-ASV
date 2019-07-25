@@ -8,6 +8,7 @@ public class ConversionItem {
     private final String[] textToReplaceWithSeparated;
     private final int[] replacementOrder;
     private final String textToMatchCombined;
+    private final String textReplacementCombined;
     private final Pattern patternToMatch;
     private final Pattern beginningPatternToMatch;
 
@@ -15,6 +16,7 @@ public class ConversionItem {
         this.textToReplaceWithSeparated = textToReplaceWithSeparated;
         this.replacementOrder = replacementOrder;
         this.textToMatchCombined = String.join(" ", textToMatchSeparated);
+        this.textReplacementCombined = String.join(" ", textToReplaceWithSeparated);
 
         // The pattern we want is the string preceded and followed by non-word characters (space, punctuation, etc.)
         patternToMatch = Pattern.compile("[\\W]{1}" + textToMatchCombined + "[\\W]{1}");
@@ -22,6 +24,7 @@ public class ConversionItem {
         beginningPatternToMatch = Pattern.compile("^" + textToMatchCombined + "[\\W]{1}");
     }
 
+    // NOT USED: segments create memory headaches...
     /* package */ void makeConversion(List<Segment> segments) {
         checkInternalMatches(segments);
         checkBeginningMatch(segments);
@@ -69,7 +72,7 @@ public class ConversionItem {
         }
         makeReplacement(segments, 0);
 
-        System.out.println("Found beginning match of " + patternToMatch.toString());
+//        System.out.println("Found beginning match of " + patternToMatch.toString());
     }
 
     private void makeReplacement(List<Segment> segments, int matchBeginning) {
@@ -78,11 +81,7 @@ public class ConversionItem {
 
         List<Segment> segmentsToWorryAbout = new LinkedList<>();
         // We have a match! Find where it exists
-        int startSegment = 0;
-        int endSegment = 0;
         int currentPlainTextIndex = 0;
-        Segment beginningMatchSegment = null;
-        Segment endingMatchSegment = null;
         boolean foundBeginning = false;
         for ( Segment segment : segments) {
             if ( !foundBeginning) {
@@ -101,8 +100,15 @@ public class ConversionItem {
             currentPlainTextIndex += segment.getPlainTextLength();
         }
 
-        System.out.println("Found " + textToMatchCombined + " in " + segmentsToWorryAbout.size() + " segments");
+        // For now we're going to expect that all matches are in one segment. If/when this isn't true, we need
+        // some extra logic here to deal with that situation...
+        if ( segmentsToWorryAbout.size() > 1) {
+            System.err.println("Found " + textToMatchCombined + " in " + segmentsToWorryAbout.size() + " segments");
+        }
 
+        Segment segment = segmentsToWorryAbout.get(0);
+        String segmentText = segment.getPlainText();
+        segment.updateText(segmentText.replace(textToMatchCombined, textReplacementCombined));
     }
 
 /*

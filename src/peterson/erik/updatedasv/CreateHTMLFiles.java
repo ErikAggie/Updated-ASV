@@ -41,6 +41,9 @@ import java.util.regex.Pattern;
             for ( String key : originalFileKeys) {
                 if ( originalFilename.startsWith(key)) {
 //                    System.out.println("Found " + BOOK_NAME_MAP.get(key) + " " + chapterMatcher.group(1));
+                    if ( originalFilename.endsWith("01.htm")) {
+                        System.out.println(originalFilename);
+                    }
                     ChapterConverter chapterConverter = new ChapterConverter(file, chapterMatcher, key);
                     chapterConverter.processFile();
                     break;
