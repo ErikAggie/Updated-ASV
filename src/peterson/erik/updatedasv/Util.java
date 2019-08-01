@@ -260,6 +260,7 @@ public class Util {
         CONVERSION_ITEMS.add(new ConversionItem(new String[] {"Then saith Jesus unto him"}, new String[] {"Then Jesus said to him"}, new int[] {0}));
         CONVERSION_ITEMS.add(new ConversionItem(new String[] {"Then the devil leaveth him"}, new String[] {"Then the devil left him"}, new int[] {0}));
         CONVERSION_ITEMS.add(new ConversionItem(new String[] {"And he saith unto them"}, new String[] {"And he said to them"}, new int[] {0}));
+        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"what reward have ye"}, new String[] {"what reward do you have"}, new int[] {0}));
 
         /*
          * Four-word replacements
@@ -278,6 +279,12 @@ public class Util {
         CONVERSION_ITEMS.add(new ConversionItem(new String[] {"will I give thee"}, new String[] {"I will give to you"}, new int[] {0}));
         CONVERSION_ITEMS.add(new ConversionItem(new String[] {"that time began Jesus"}, new String[] {"that time Jesus began"}, new int[] {0}));
         CONVERSION_ITEMS.add(new ConversionItem(new String[] {"Come ye after me"}, new String[] {"Come after me"}, new int[] {0}));
+        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"and there rememberest that"}, new String[] {"and there remember that"}, new int[] {0}));
+        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"leave there thy gift"}, new String[] {"leave your gift"}, new int[] {0}));
+        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"every one that looketh"}, new String[] {"every one that looks"}, new int[] {0}));
+        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"every one that putteth"}, new String[] {"every one that puts"}, new int[] {0}));
+        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"is put away committeth"}, new String[] {"is put away commits"}, new int[] {0}));
+        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"all things be accomplished"}, new String[] {"all things are accomplished"}, new int[] {0}));
 
         /*
          * Three-word replacements
@@ -290,6 +297,19 @@ public class Util {
         CONVERSION_ITEMS.add(new ConversionItem(new String[] {"he afterward hungered."}, new String[] {"he hungered."}, new int[] {0}));
         CONVERSION_ITEMS.add(new ConversionItem(new String[] {"and showeth him"}, new String[] {"and showed him"}, new int[] {0}));
         CONVERSION_ITEMS.add(new ConversionItem(new String[] {"Get thee hence"}, new String[] {"Go away"}, new int[] {0}));
+        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"so persecuted they"}, new String[] {"so they persecuted"}, new int[] {0}));
+        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"the salt have"}, new String[] {"the salt has"}, new int[] {0}));
+        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"it shineth unto"}, new String[] {"it shines to"}, new int[] {0}));
+        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"thy brother hath"}, new String[] {"your brother has"}, new int[] {0}));
+        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"come out thence"}, new String[] {"come out of there"}, new int[] {0}));
+        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"her hath committed"}, new String[] {"her has committed"}, new int[] {0}));
+        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"right eye causeth"}, new String[] {"right eye causes"}, new int[] {0}));
+        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"right hand causeth"}, new String[] {"right hand causes"}, new int[] {0}));
+        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"maketh her an"}, new String[] {"makes her an"}, new int[] {0}));
+        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"him that asketh"}, new String[] {"him that asks"}, new int[] {0}));
+        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"turn not thou"}, new String[] {"turn not"}, new int[] {0}));
+        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"for he maketh"}, new String[] {"for he makes"}, new int[] {0}));
+        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"and sendeth rain"}, new String[] {"and sends rain"}, new int[] {0}));
 
         /*
          * Two-word replacements
@@ -301,6 +321,9 @@ public class Util {
         CONVERSION_ITEMS.add(new ConversionItem(new String[] {"thou art"}, new String[] {"you are"}, new int[] {0}));
         CONVERSION_ITEMS.add(new ConversionItem(new String[] {"thou wilt"}, new String[] {"you will"}, new int[] {0}));
         CONVERSION_ITEMS.add(new ConversionItem(new String[] {"holden with"}, new String[] {"held by"}, new int[] {0}));
+        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"be exceeding"}, new String[] {"be exceedingly"}, new int[] {0}));
+        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"canst not"}, new String[] {"cannot"}, new int[] {0}));
+        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"whosoever smiteth"}, new String[] {"whosoever smites"}, new int[] {0}));
 
         /*
          * Single-word replacements (place last so longer matches are done first...)
@@ -327,6 +350,11 @@ public class Util {
         CONVERSION_ITEMS.add(new ConversionItem(new String[] {"thyself"}, new String[] {"yourself"}, new int[] {0}));
         CONVERSION_ITEMS.add(new ConversionItem(new String[] {"thence"}, new String[] {"there"}, new int[] {0}));
         CONVERSION_ITEMS.add(new ConversionItem(new String[] {"divers"}, new String[] {"various"}, new int[] {0}));
+        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"wherewith"}, new String[] {"with what"}, new int[] {0}));
+        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"thenceforth"}, new String[] {"thereafter"}, new int[] {0}));
+        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"aught"}, new String[] {"anything"}, new int[] {0}));
+        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"thine"}, new String[] {"your"}, new int[] {0}));
+        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"canst"}, new String[] {"can"}, new int[] {0}));
 
 
 
