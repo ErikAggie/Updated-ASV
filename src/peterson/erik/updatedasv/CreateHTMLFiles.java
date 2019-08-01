@@ -1,6 +1,7 @@
 package peterson.erik.updatedasv;
 
 import peterson.erik.updatedasv.convert.ChapterConverter;
+import peterson.erik.updatedasv.convert.ConversionItem;
 
 import java.io.File;
 import java.io.IOException;
@@ -51,6 +52,9 @@ import java.util.regex.Pattern;
             }
         }
         ChapterConverter.outputRunTimes();
-        ChapterConverter.printMatches();
+        for ( ConversionItem converter : Util.CONVERSION_ITEMS) {
+            converter.warnIfNoMatchesFound();
+        }
+        //ChapterConverter.printMatches();
     }
 }

@@ -11,6 +11,7 @@ public class ConversionItem {
     private final String textReplacementCombined;
     private final Pattern patternToMatch;
     private final Pattern beginningPatternToMatch;
+    private long numReplacements;
 
     public ConversionItem(String[] textToMatchSeparated, String[] textToReplaceWithSeparated, int[] replacementOrder) {
         this.textToReplaceWithSeparated = textToReplaceWithSeparated;
@@ -24,10 +25,15 @@ public class ConversionItem {
         beginningPatternToMatch = Pattern.compile("^" + textToMatchCombined + "[\\W]{1}");
     }
 
-    // NOT USED: segments create memory headaches...
     /* package */ void makeConversion(List<Segment> segments) {
         checkInternalMatches(segments);
         checkBeginningMatch(segments);
+    }
+
+    public void warnIfNoMatchesFound() {
+        if ( numReplacements == 0) {
+            System.err.println("No matches found for " + textToMatchCombined + ". This is probably not what you intended. :)");
+        }
     }
 
     private void checkInternalMatches(List<Segment> segments) {
@@ -57,6 +63,7 @@ public class ConversionItem {
         while ( !matchBeginnings.isEmpty()) {
             int startLocation = matchBeginnings.pop();
             makeReplacement(segments, startLocation);
+            numReplacements++;
         }
     }
 

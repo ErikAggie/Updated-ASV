@@ -259,7 +259,7 @@ public class Util {
         CONVERSION_ITEMS.add(new ConversionItem(new String[] {"for thus it becometh us"}, new String[] {"for it is becoming of us"}, new int[] {0}));
         CONVERSION_ITEMS.add(new ConversionItem(new String[] {"Then saith Jesus unto him"}, new String[] {"Then Jesus said to him"}, new int[] {0}));
         CONVERSION_ITEMS.add(new ConversionItem(new String[] {"Then the devil leaveth him"}, new String[] {"Then the devil left him"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"And he saith to them"}, new String[] {"And he said to them"}, new int[] {0}));
+        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"And he saith unto them"}, new String[] {"And he said to them"}, new int[] {0}));
 
         /*
          * Four-word replacements
