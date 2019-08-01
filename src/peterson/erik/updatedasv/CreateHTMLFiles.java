@@ -50,6 +50,7 @@ import java.util.regex.Pattern;
                 }
             }
         }
+        ChapterConverter.outputRunTimes();
         ChapterConverter.printMatches();
     }
 }

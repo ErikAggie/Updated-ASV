@@ -255,6 +255,7 @@ public class Util {
         /*
          * Five-word replacements
          */
+        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"for thus it becometh us"}, new String[] {"for it is becoming of us"}, new int[] {0}));
 
 
         /*
@@ -262,11 +263,20 @@ public class Util {
          */
         CONVERSION_ITEMS.add(new ConversionItem(new String[] {"Art in no wise"}, new String[] {"Are in no wise"}, new int[] {0}));
         CONVERSION_ITEMS.add(new ConversionItem(new String[] {"mocked of the Wise-men"}, new String[] {"mocked by the Wise-men"}, new int[] {0}));
+        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"cometh John the Baptist"}, new String[] {"John the Baptist came"}, new int[] {0}));
+        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"Abraham to our father"}, new String[] {"Abraham as our father"}, new int[] {0}));
+        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"that bringeth not forth"}, new String[] {"that does not bring forth"}, new int[] {0}));
+        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"Then cometh Jesus from"}, new String[] {"Then Jesus went from"}, new int[] {0}));
+        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"and comest thou to"}, new String[] {"and you come to"}, new int[] {0}));
+        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"Then he suffereth him."}, new String[] {"Then he suffered him."}, new int[] {0}));
 
         /*
          * Three-word replacements
          */
         CONVERSION_ITEMS.add(new ConversionItem(new String[] {"be thou there"}, new String[] {"stay there"}, new int[] {0}));
+        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"Make ye ready"}, new String[] {"Make ready"}, new int[] {0}));
+        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"the axe lieth"}, new String[] {"the axe lays"}, new int[] {0}));
+        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"he that cometh"}, new String[] {"he that comes"}, new int[] {0}));
 
         /*
          * Two-word replacements
@@ -274,6 +284,7 @@ public class Util {
         CONVERSION_ITEMS.add(new ConversionItem(new String[] {"thou son"}, new String[] {"son"}, new int[] {0}));
         CONVERSION_ITEMS.add(new ConversionItem(new String[] {"come forth"}, new String[] {"come"}, new int[] {0}));
         CONVERSION_ITEMS.add(new ConversionItem(new String[] {"cometh forth"}, new String[] {"comes"}, new int[] {0}));
+        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"Repent ye;"}, new String[] {"Repent,"}, new int[] {0}));
 
         /*
          * Single-word replacements (place last so longer matches are done first...)
@@ -290,9 +301,12 @@ public class Util {
         CONVERSION_ITEMS.add(new ConversionItem(new String[] {"thee"}, new String[] {"you"}, new int[] {0}));
         CONVERSION_ITEMS.add(new ConversionItem(new String[] {"thou"}, new String[] {"you"}, new int[] {0}));
         CONVERSION_ITEMS.add(new ConversionItem(new String[] {"ye"}, new String[] {"you"}, new int[] {0}));
+        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"Ye"}, new String[] {"You"}, new int[] {0}));
         CONVERSION_ITEMS.add(new ConversionItem(new String[] {"thither"}, new String[] {"there"}, new int[] {0}));
         CONVERSION_ITEMS.add(new ConversionItem(new String[] {"Judæa"}, new String[] {"Judea"}, new int[] {0}));
         CONVERSION_ITEMS.add(new ConversionItem(new String[] {"Wise-men"}, new String[] {"wise men"}, new int[] {0}));
+        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"hewn"}, new String[] {"cut"}, new int[] {0}));
+        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"leathern"}, new String[] {"leather"}, new int[] {0}));
 
 
 

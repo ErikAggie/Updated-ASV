@@ -6,10 +6,12 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import peterson.erik.updatedasv.Util;
 
+import java.awt.*;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -25,6 +27,12 @@ public class ChapterConverter {
     private final File cleanedUpDirectory;
     private final File updatedDirectory;
     private final String chapterTitle;
+
+    private static long totalParseTime;
+    private static long totalCleanUpTime;
+    private static long totalWriteCleanFileTime;
+    private static long totalUpdateTime;
+    private static long totalWriteUpdateFileTime;
 
     // Used in searching for stuff. Should only use one such method at a time!
     private static final Map<String, String> SEARCH_MAP = new HashMap<>();
@@ -42,6 +50,14 @@ public class ChapterConverter {
         updatedDirectory = new File(new File(Util.UPDATED_TEXT_DIR), bookName);
         chapterTitle =
                 bookName + " " + chapterNumber;
+    }
+
+    public static void outputRunTimes() {
+        System.out.println("Parse:\t" + (totalParseTime / 1000000000.0));
+        System.out.println("Clean:\t" + (totalCleanUpTime / 1000000000.0));
+        System.out.println("Write (c):\t" + (totalWriteCleanFileTime / 1000000000.0));
+        System.out.println("Update:\t" + (totalUpdateTime / 1000000000.0));
+        System.out.println("Write (u):\t" + (totalWriteUpdateFileTime / 1000000000.0));
     }
 
     private String getDestinationFileName(int chapterToLookUp) {
@@ -77,7 +93,10 @@ public class ChapterConverter {
         StringBuilder newText = new StringBuilder();
         addHeaderInfo(newText);
 
+        long starttime = System.nanoTime();
         Document originalDoc = Jsoup.parse(sourceFile, "UTF-8", "http://example.com/");
+        totalParseTime += (System.nanoTime() - starttime);
+        starttime = System.nanoTime();
         Elements divElements = originalDoc.getElementsByTag("div");
         for (Element paragraph : divElements) {
             String classname = paragraph.className();
@@ -122,7 +141,10 @@ public class ChapterConverter {
         }
 //                    System.out.println("Now have " + newText.toString());
 
+        totalCleanUpTime += (System.nanoTime() - starttime);
+        starttime = System.nanoTime();
         writeFile(cleanedUpDirectory, newText.toString() + Util.UNMODIFIED_COPYRIGHT + "</body></html>");
+        totalWriteCleanFileTime += (System.nanoTime() - starttime);
         return newText.toString();
     }
 
@@ -186,6 +208,7 @@ public class ChapterConverter {
     // Converting the file to be easier to read
     //-----------------------------------------------------------------------------------------------------------
     private void updateText(String textToUpdate) throws IOException {
+        long starttime = System.nanoTime();
         List<Segment> segments = splitIntoSegment(textToUpdate);
         for ( ConversionItem item : Util.CONVERSION_ITEMS) {
             item.makeConversion(segments);
@@ -195,7 +218,10 @@ public class ChapterConverter {
         for ( Segment segment : segments) {
             updatedTextBuilder.append(segment.getFullText());
         }
+        totalUpdateTime += (System.nanoTime() - starttime);
+        starttime = System.nanoTime();
         writeFile(updatedDirectory, updatedTextBuilder.toString() + Util.MODIFIED_COPYRIGHT + "</body></html>");
+        totalWriteUpdateFileTime += (System.nanoTime() - starttime);
     }
 
     private List<Segment> splitIntoSegment(String textToSplit) {
