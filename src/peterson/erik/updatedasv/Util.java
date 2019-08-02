@@ -240,139 +240,133 @@ public class Util {
                     "This modification is Copyright 2019 by Erik Peterson. All rights reserved. " +
                     "Future permissions will likely be more open.</div>";
 
-    public static final List<ConversionItem> CONVERSION_ITEMS = new LinkedList<>();
-    static {
-        // These changes are denoted like this:
-        // * The text to match (split into groups for word reordering
-        // * The corresponding text sections--in the same order; this is important in case the text crosses a div or span boundary
-        // * The order to put the new segments in (i.e. if there is any reordering)
+    public static final ConversionItem[] CONVERSION_ITEMS = {
+            /*
+             * Six-word replacements
+             */
+            new ConversionItem("an angel of the Lord appeareth", "an angel of the Lord appeared"),
+            new ConversionItem("to be tempted of the devil", "to be tempted by the devil"),
+            /*
+             * Five-word replacements
+             */
+            new ConversionItem("for thus it becometh us", "for it is becoming of us"),
+            new ConversionItem("Then saith Jesus unto him", "Then Jesus said to him"),
+            new ConversionItem("Then the devil leaveth him", "Then the devil left him"),
+            new ConversionItem("And he saith unto them", "And he said to them"),
+            new ConversionItem("ye shall not be as", "you will not be like"),
+            new ConversionItem("your heavenly Father knoweth that", "your heavenly Father knows that"),
 
-        /*
-         * Six-word replacements
-         */
-        CONVERSION_ITEMS.add(new ConversionItem("an angel of the Lord appeareth", "an angel of the Lord appeared"));
-        CONVERSION_ITEMS.add(new ConversionItem("to be tempted of the devil", "to be tempted by the devil"));
+            /*
+             * Four-word replacements
+             */
+            new ConversionItem("Art in no wise", "Are in no wise"),
+            new ConversionItem("mocked of the Wise-men", "mocked by the Wise-men"),
+            new ConversionItem("cometh John the Baptist", "John the Baptist came"),
+            new ConversionItem("Abraham to our father", "Abraham as our father"),
+            new ConversionItem("that bringeth not forth", "that does not bring forth"),
+            new ConversionItem("Then cometh Jesus from", "Then Jesus went from"),
+            new ConversionItem("and comest thou to", "and you come to"),
+            new ConversionItem("Then he suffereth him.", "Then he suffered him."),
+            new ConversionItem("every word that proceedeth", "every word that proceeds"),
+            new ConversionItem("and saith unto him", "and said to him"),
+            new ConversionItem("the devil taketh him", "the devil took him"),
+            new ConversionItem("will I give thee", "I will give to you"),
+            new ConversionItem("that time began Jesus", "that time Jesus began"),
+            new ConversionItem("Come ye after me", "Come after me"),
+            new ConversionItem("and there rememberest that", "and there remember that"),
+            new ConversionItem("leave there thy gift", "leave your gift"),
+            new ConversionItem("every one that looketh", "every one that looks"),
+            new ConversionItem("every one that putteth", "every one that puts"),
+            new ConversionItem("is put away committeth", "is put away commits"),
+            new ConversionItem("all things be accomplished", "all things are accomplished"),
+            new ConversionItem("ye do not your", "you do not do your"),
+            new ConversionItem("what reward have ye", "what reward do you have"),
+            new ConversionItem("thy right hand doeth", "your right hand does"),
+            new ConversionItem("Our Father who art", "Our Father who is"),
+            new ConversionItem("thy Father, who seeth", "your Father, who sees"),
+            new ConversionItem("heavenly Father feedeth them", "heavenly Father feeds them"),
+            new ConversionItem("God doth so clothe", "God so clothes"),
+            new ConversionItem("But seek ye first", "But seek first"),
+            new ConversionItem("therefore like unto them", "therefore like them"),
 
-        /*
-         * Five-word replacements
-         */
-        CONVERSION_ITEMS.add(new ConversionItem("for thus it becometh us", "for it is becoming of us"));
-        CONVERSION_ITEMS.add(new ConversionItem("Then saith Jesus unto him", "Then Jesus said to him"));
-        CONVERSION_ITEMS.add(new ConversionItem("Then the devil leaveth him", "Then the devil left him"));
-        CONVERSION_ITEMS.add(new ConversionItem("And he saith unto them", "And he said to them"));
-        CONVERSION_ITEMS.add(new ConversionItem("ye shall not be as", "you will not be like"));
-
-        /*
-         * Four-word replacements
-         */
-        CONVERSION_ITEMS.add(new ConversionItem("Art in no wise", "Are in no wise"));
-        CONVERSION_ITEMS.add(new ConversionItem("mocked of the Wise-men", "mocked by the Wise-men"));
-        CONVERSION_ITEMS.add(new ConversionItem("cometh John the Baptist", "John the Baptist came"));
-        CONVERSION_ITEMS.add(new ConversionItem("Abraham to our father", "Abraham as our father"));
-        CONVERSION_ITEMS.add(new ConversionItem("that bringeth not forth", "that does not bring forth"));
-        CONVERSION_ITEMS.add(new ConversionItem("Then cometh Jesus from", "Then Jesus went from"));
-        CONVERSION_ITEMS.add(new ConversionItem("and comest thou to", "and you come to"));
-        CONVERSION_ITEMS.add(new ConversionItem("Then he suffereth him.", "Then he suffered him."));
-        CONVERSION_ITEMS.add(new ConversionItem("every word that proceedeth", "every word that proceeds"));
-        CONVERSION_ITEMS.add(new ConversionItem("and saith unto him", "and said to him"));
-        CONVERSION_ITEMS.add(new ConversionItem("the devil taketh him", "the devil took him"));
-        CONVERSION_ITEMS.add(new ConversionItem("will I give thee", "I will give to you"));
-        CONVERSION_ITEMS.add(new ConversionItem("that time began Jesus", "that time Jesus began"));
-        CONVERSION_ITEMS.add(new ConversionItem("Come ye after me", "Come after me"));
-        CONVERSION_ITEMS.add(new ConversionItem("and there rememberest that", "and there remember that"));
-        CONVERSION_ITEMS.add(new ConversionItem("leave there thy gift", "leave your gift"));
-        CONVERSION_ITEMS.add(new ConversionItem("every one that looketh", "every one that looks"));
-        CONVERSION_ITEMS.add(new ConversionItem("every one that putteth", "every one that puts"));
-        CONVERSION_ITEMS.add(new ConversionItem("is put away committeth", "is put away commits"));
-        CONVERSION_ITEMS.add(new ConversionItem("all things be accomplished", "all things are accomplished"));
-        CONVERSION_ITEMS.add(new ConversionItem("ye do not your", "you do not do your"));
-        CONVERSION_ITEMS.add(new ConversionItem("what reward have ye", "what reward do you have"));
-        CONVERSION_ITEMS.add(new ConversionItem("thy right hand doeth", "your right hand does"));
-        CONVERSION_ITEMS.add(new ConversionItem("Our Father who art", "Our Father who is"));
-        CONVERSION_ITEMS.add(new ConversionItem("thy Father, who seeth", "your Father, who seeth"));
-
-        /*
-         * Three-word replacements
-         */
-        CONVERSION_ITEMS.add(new ConversionItem("be thou there", "stay there"));
-        CONVERSION_ITEMS.add(new ConversionItem("Make ye ready", "Make ready"));
-        CONVERSION_ITEMS.add(new ConversionItem("the axe lieth", "the axe lays"));
-        CONVERSION_ITEMS.add(new ConversionItem("he that cometh", "he that comes"));
-        CONVERSION_ITEMS.add(new ConversionItem("Then was Jesus", "Then Jesus was"));
-        CONVERSION_ITEMS.add(new ConversionItem("he afterward hungered.", "he hungered."));
-        CONVERSION_ITEMS.add(new ConversionItem("and showeth him", "and showed him"));
-        CONVERSION_ITEMS.add(new ConversionItem("Get thee hence", "Go away"));
-        CONVERSION_ITEMS.add(new ConversionItem("so persecuted they", "so they persecuted"));
-        CONVERSION_ITEMS.add(new ConversionItem("the salt have", "the salt has"));
-        CONVERSION_ITEMS.add(new ConversionItem("it shineth unto", "it shines to"));
-        CONVERSION_ITEMS.add(new ConversionItem("thy brother hath", "your brother has"));
-        CONVERSION_ITEMS.add(new ConversionItem("come out thence", "come out of there"));
-        CONVERSION_ITEMS.add(new ConversionItem("her hath committed", "her has committed"));
-        CONVERSION_ITEMS.add(new ConversionItem("right eye causeth", "right eye causes"));
-        CONVERSION_ITEMS.add(new ConversionItem("right hand causeth", "right hand causes"));
-        CONVERSION_ITEMS.add(new ConversionItem("maketh her an", "makes her an"));
-        CONVERSION_ITEMS.add(new ConversionItem("him that asketh", "him that asks"));
-        CONVERSION_ITEMS.add(new ConversionItem("turn not thou", "turn not"));
-        CONVERSION_ITEMS.add(new ConversionItem("for he maketh", "for he makes"));
-        CONVERSION_ITEMS.add(new ConversionItem("and sendeth rain", "and sends rain"));
-        CONVERSION_ITEMS.add(new ConversionItem("thou doest alms", "you do alms"));
-        CONVERSION_ITEMS.add(new ConversionItem("Father who seeth", "Father who sees"));
-        CONVERSION_ITEMS.add(new ConversionItem("when thou prayest", "when you pray"));
-        CONVERSION_ITEMS.add(new ConversionItem("your Father knoweth", "your Father knows"));
-        CONVERSION_ITEMS.add(new ConversionItem("when thou fastest", "when you fast"));
-
-        /*
-         * Two-word replacements
-         */
-        CONVERSION_ITEMS.add(new ConversionItem("thou son", "son"));
-        CONVERSION_ITEMS.add(new ConversionItem("come forth", "come"));
-        CONVERSION_ITEMS.add(new ConversionItem("cometh forth", "comes"));
-        CONVERSION_ITEMS.add(new ConversionItem("Repent ye;", "Repent,"));
-        CONVERSION_ITEMS.add(new ConversionItem("thou art", "you are"));
-        CONVERSION_ITEMS.add(new ConversionItem("thou wilt", "you will"));
-        CONVERSION_ITEMS.add(new ConversionItem("holden with", "held by"));
-        CONVERSION_ITEMS.add(new ConversionItem("be exceeding", "be exceedingly"));
-        CONVERSION_ITEMS.add(new ConversionItem("canst not", "cannot"));
-        CONVERSION_ITEMS.add(new ConversionItem("whosoever smiteth", "whosoever smites"));
-
-        /*
-         * Single-word replacements (place last so longer matches are done first...)
-         */
-        CONVERSION_ITEMS.add(new ConversionItem("beget", "father"));
-        CONVERSION_ITEMS.add(new ConversionItem("begat", "fathered"));
-        CONVERSION_ITEMS.add(new ConversionItem("privily", "privately"));
-        CONVERSION_ITEMS.add(new ConversionItem("thy", "your"));
-        CONVERSION_ITEMS.add(new ConversionItem("Thy", "Your"));
-        // Make sure "shall" comes before "shalt", otherwise "shalt" will go to "will"
-        CONVERSION_ITEMS.add(new ConversionItem("shall", "will"));
-        CONVERSION_ITEMS.add(new ConversionItem("shalt", "shall"));
-        CONVERSION_ITEMS.add(new ConversionItem("unto", "to"));
-        CONVERSION_ITEMS.add(new ConversionItem("thee", "you"));
-        CONVERSION_ITEMS.add(new ConversionItem("thou", "you"));
-        CONVERSION_ITEMS.add(new ConversionItem("Thou", "You"));
-        CONVERSION_ITEMS.add(new ConversionItem("ye", "you"));
-        CONVERSION_ITEMS.add(new ConversionItem("Ye", "You"));
-        CONVERSION_ITEMS.add(new ConversionItem("thither", "there"));
-        CONVERSION_ITEMS.add(new ConversionItem("Judæa", "Judea"));
-        CONVERSION_ITEMS.add(new ConversionItem("Wise-men", "wise men"));
-        CONVERSION_ITEMS.add(new ConversionItem("hewn", "cut"));
-        CONVERSION_ITEMS.add(new ConversionItem("leathern", "leather"));
-        CONVERSION_ITEMS.add(new ConversionItem("thyself", "yourself"));
-        CONVERSION_ITEMS.add(new ConversionItem("thence", "there"));
-        CONVERSION_ITEMS.add(new ConversionItem("divers", "various"));
-        CONVERSION_ITEMS.add(new ConversionItem("wherewith", "with what"));
-        CONVERSION_ITEMS.add(new ConversionItem("thenceforth", "thereafter"));
-        CONVERSION_ITEMS.add(new ConversionItem("aught", "anything"));
-        CONVERSION_ITEMS.add(new ConversionItem("thine", "your"));
-        CONVERSION_ITEMS.add(new ConversionItem("canst", "can"));
-        CONVERSION_ITEMS.add(new ConversionItem("doest", "do"));
+            /*
+             * Three-word replacements
+             */
+            new ConversionItem("be thou there", "stay there"),
+            new ConversionItem("Make ye ready", "Make ready"),
+            new ConversionItem("the axe lieth", "the axe lays"),
+            new ConversionItem("he that cometh", "he that comes"),
+            new ConversionItem("Then was Jesus", "Then Jesus was"),
+            new ConversionItem("he afterward hungered.", "he hungered."),
+            new ConversionItem("and showeth him", "and showed him"),
+            new ConversionItem("Get thee hence", "Go away"),
+            new ConversionItem("so persecuted they", "so they persecuted"),
+            new ConversionItem("the salt have", "the salt has"),
+            new ConversionItem("it shineth unto", "it shines to"),
+            new ConversionItem("thy brother hath", "your brother has"),
+            new ConversionItem("come out thence", "come out of there"),
+            new ConversionItem("her hath committed", "her has committed"),
+            new ConversionItem("right eye causeth", "right eye causes"),
+            new ConversionItem("right hand causeth", "right hand causes"),
+            new ConversionItem("maketh her an", "makes her an"),
+            new ConversionItem("him that asketh", "him that asks"),
+            new ConversionItem("turn not thou", "turn not"),
+            new ConversionItem("for he maketh", "for he makes"),
+            new ConversionItem("and sendeth rain", "and sends rain"),
+            new ConversionItem("thou doest alms", "you do alms"),
+            new ConversionItem("Father who seeth", "Father who sees"),
+            new ConversionItem("when thou prayest", "when you pray"),
+            new ConversionItem("your Father knoweth", "your Father knows"),
+            new ConversionItem("when thou fastest", "when you fast"),
+            new ConversionItem("therefore pray ye:", "therefore pray:"),
 
 
+            /*
+             * Two-word replacements
+             */
+            new ConversionItem("thou son", "son"),
+            new ConversionItem("come forth", "come"),
+            new ConversionItem("cometh forth", "comes"),
+            new ConversionItem("Repent ye;", "Repent,"),
+            new ConversionItem("thou art", "you are"),
+            new ConversionItem("thou wilt", "you will"),
+            new ConversionItem("holden with", "held by"),
+            new ConversionItem("be exceeding", "be exceedingly"),
+            new ConversionItem("canst not", "cannot"),
+            new ConversionItem("whosoever smiteth", "whosoever smites"),
+            new ConversionItem("use not", "do not use"),
+            new ConversionItem("doth consume", "consumes"),
 
-        //CONVERSION_ITEMS.add(new ConversionItem("didst", "not", "thou", "did", "not", "you"}, new int[] {0, 2, 1}));
-        //CONVERSION_ITEMS.add(new ConversionItem("Didst", "not", "thou", "Did", "not", "you"}, new int[] {0, 2, 1}));
-
-        // Test for items that cover multiple segments
-        //CONVERSION_ITEMS.add(new ConversionItem("unto thy handmaid, saying, Assuredly", "nothing"));
-    }
+            /*
+             * Single-word replacements place last so longer matches are done first...)
+             */
+            new ConversionItem("beget", "father"),
+            new ConversionItem("begat", "fathered"),
+            new ConversionItem("privily", "privately"),
+            new ConversionItem("thy", "your"),
+            new ConversionItem("Thy", "Your"),
+            // Make sure "shall" comes before "shalt", otherwise "shalt" will go to "will"
+            new ConversionItem("shall", "will"),
+            new ConversionItem("shalt", "shall"),
+            new ConversionItem("unto", "to"),
+            new ConversionItem("thee", "you"),
+            new ConversionItem("thou", "you"),
+            new ConversionItem("Thou", "You"),
+            new ConversionItem("ye", "you"),
+            new ConversionItem("Ye", "You"),
+            new ConversionItem("thither", "there"),
+            new ConversionItem("Judæa", "Judea"),
+            new ConversionItem("Wise-men", "wise men"),
+            new ConversionItem("hewn", "cut"),
+            new ConversionItem("leathern", "leather"),
+            new ConversionItem("thyself", "yourself"),
+            new ConversionItem("thence", "there"),
+            new ConversionItem("divers", "various"),
+            new ConversionItem("wherewith", "with what"),
+            new ConversionItem("thenceforth", "thereafter"),
+            new ConversionItem("aught", "anything"),
+            new ConversionItem("thine", "your"),
+            new ConversionItem("canst", "can"),
+            new ConversionItem("doest", "do")
+    };
 }
