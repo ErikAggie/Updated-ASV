@@ -260,7 +260,7 @@ public class Util {
         CONVERSION_ITEMS.add(new ConversionItem(new String[] {"Then saith Jesus unto him"}, new String[] {"Then Jesus said to him"}, new int[] {0}));
         CONVERSION_ITEMS.add(new ConversionItem(new String[] {"Then the devil leaveth him"}, new String[] {"Then the devil left him"}, new int[] {0}));
         CONVERSION_ITEMS.add(new ConversionItem(new String[] {"And he saith unto them"}, new String[] {"And he said to them"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"what reward have ye"}, new String[] {"what reward do you have"}, new int[] {0}));
+        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"ye shall not be as"}, new String[] {"you will not be like"}, new int[] {0}));
 
         /*
          * Four-word replacements
@@ -285,6 +285,11 @@ public class Util {
         CONVERSION_ITEMS.add(new ConversionItem(new String[] {"every one that putteth"}, new String[] {"every one that puts"}, new int[] {0}));
         CONVERSION_ITEMS.add(new ConversionItem(new String[] {"is put away committeth"}, new String[] {"is put away commits"}, new int[] {0}));
         CONVERSION_ITEMS.add(new ConversionItem(new String[] {"all things be accomplished"}, new String[] {"all things are accomplished"}, new int[] {0}));
+        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"ye do not your"}, new String[] {"you do not do your"}, new int[] {0}));
+        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"what reward have ye"}, new String[] {"what reward do you have"}, new int[] {0}));
+        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"thy right hand doeth"}, new String[] {"your right hand does"}, new int[] {0}));
+        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"Our Father who art"}, new String[] {"Our Father who is"}, new int[] {0}));
+        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"thy Father, who seeth"}, new String[] {"your Father, who seeth"}, new int[] {0}));
 
         /*
          * Three-word replacements
@@ -310,6 +315,11 @@ public class Util {
         CONVERSION_ITEMS.add(new ConversionItem(new String[] {"turn not thou"}, new String[] {"turn not"}, new int[] {0}));
         CONVERSION_ITEMS.add(new ConversionItem(new String[] {"for he maketh"}, new String[] {"for he makes"}, new int[] {0}));
         CONVERSION_ITEMS.add(new ConversionItem(new String[] {"and sendeth rain"}, new String[] {"and sends rain"}, new int[] {0}));
+        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"thou doest alms"}, new String[] {"you do alms"}, new int[] {0}));
+        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"Father who seeth"}, new String[] {"Father who sees"}, new int[] {0}));
+        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"when thou prayest"}, new String[] {"when you pray"}, new int[] {0}));
+        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"your Father knoweth"}, new String[] {"your Father knows"}, new int[] {0}));
+        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"when thou fastest"}, new String[] {"when you fast"}, new int[] {0}));
 
         /*
          * Two-word replacements
@@ -332,10 +342,10 @@ public class Util {
         CONVERSION_ITEMS.add(new ConversionItem(new String[] {"begat"}, new String[] {"fathered"}, new int[] {0}));
         CONVERSION_ITEMS.add(new ConversionItem(new String[] {"privily"}, new String[] {"privately"}, new int[] {0}));
         CONVERSION_ITEMS.add(new ConversionItem(new String[] {"thy"}, new String[] {"your"}, new int[] {0}));
+        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"Thy"}, new String[] {"Your"}, new int[] {0}));
         // Make sure "shall" comes before "shalt", otherwise "shalt" will go to "will"
         CONVERSION_ITEMS.add(new ConversionItem(new String[] {"shall"}, new String[] {"will"}, new int[] {0}));
         CONVERSION_ITEMS.add(new ConversionItem(new String[] {"shalt"}, new String[] {"shall"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"till"}, new String[] {"until"}, new int[] {0}));
         CONVERSION_ITEMS.add(new ConversionItem(new String[] {"unto"}, new String[] {"to"}, new int[] {0}));
         CONVERSION_ITEMS.add(new ConversionItem(new String[] {"thee"}, new String[] {"you"}, new int[] {0}));
         CONVERSION_ITEMS.add(new ConversionItem(new String[] {"thou"}, new String[] {"you"}, new int[] {0}));
@@ -355,6 +365,7 @@ public class Util {
         CONVERSION_ITEMS.add(new ConversionItem(new String[] {"aught"}, new String[] {"anything"}, new int[] {0}));
         CONVERSION_ITEMS.add(new ConversionItem(new String[] {"thine"}, new String[] {"your"}, new int[] {0}));
         CONVERSION_ITEMS.add(new ConversionItem(new String[] {"canst"}, new String[] {"can"}, new int[] {0}));
+        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"doest"}, new String[] {"do"}, new int[] {0}));
 
 
 
