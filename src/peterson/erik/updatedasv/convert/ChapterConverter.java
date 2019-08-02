@@ -210,8 +210,14 @@ public class ChapterConverter {
     private void updateText(String textToUpdate) throws IOException {
         long starttime = System.nanoTime();
         List<Segment> segments = splitIntoSegment(textToUpdate);
+        List<Segment> segmentsToUpdate = new ArrayList<>();
+        for ( Segment segment : segments) {
+            if ( !segment.getPlainText().isEmpty()) {
+                segmentsToUpdate.add(segment);
+            }
+        }
         for ( ConversionItem item : Util.CONVERSION_ITEMS) {
-            item.makeConversion(segments);
+            item.makeConversion(segmentsToUpdate);
         }
 
         StringBuilder updatedTextBuilder = new StringBuilder();

@@ -250,129 +250,129 @@ public class Util {
         /*
          * Six-word replacements
          */
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"an angel of the Lord appeareth"}, new String[] {"an angel of the Lord appeared"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"to be tempted of the devil"}, new String[] {"to be tempted by the devil"}, new int[] {0}));
+        CONVERSION_ITEMS.add(new ConversionItem("an angel of the Lord appeareth", "an angel of the Lord appeared"));
+        CONVERSION_ITEMS.add(new ConversionItem("to be tempted of the devil", "to be tempted by the devil"));
 
         /*
          * Five-word replacements
          */
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"for thus it becometh us"}, new String[] {"for it is becoming of us"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"Then saith Jesus unto him"}, new String[] {"Then Jesus said to him"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"Then the devil leaveth him"}, new String[] {"Then the devil left him"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"And he saith unto them"}, new String[] {"And he said to them"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"ye shall not be as"}, new String[] {"you will not be like"}, new int[] {0}));
+        CONVERSION_ITEMS.add(new ConversionItem("for thus it becometh us", "for it is becoming of us"));
+        CONVERSION_ITEMS.add(new ConversionItem("Then saith Jesus unto him", "Then Jesus said to him"));
+        CONVERSION_ITEMS.add(new ConversionItem("Then the devil leaveth him", "Then the devil left him"));
+        CONVERSION_ITEMS.add(new ConversionItem("And he saith unto them", "And he said to them"));
+        CONVERSION_ITEMS.add(new ConversionItem("ye shall not be as", "you will not be like"));
 
         /*
          * Four-word replacements
          */
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"Art in no wise"}, new String[] {"Are in no wise"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"mocked of the Wise-men"}, new String[] {"mocked by the Wise-men"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"cometh John the Baptist"}, new String[] {"John the Baptist came"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"Abraham to our father"}, new String[] {"Abraham as our father"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"that bringeth not forth"}, new String[] {"that does not bring forth"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"Then cometh Jesus from"}, new String[] {"Then Jesus went from"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"and comest thou to"}, new String[] {"and you come to"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"Then he suffereth him."}, new String[] {"Then he suffered him."}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"every word that proceedeth"}, new String[] {"every word that proceeds"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"and saith unto him"}, new String[] {"and said to him"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"the devil taketh him"}, new String[] {"the devil took him"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"will I give thee"}, new String[] {"I will give to you"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"that time began Jesus"}, new String[] {"that time Jesus began"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"Come ye after me"}, new String[] {"Come after me"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"and there rememberest that"}, new String[] {"and there remember that"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"leave there thy gift"}, new String[] {"leave your gift"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"every one that looketh"}, new String[] {"every one that looks"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"every one that putteth"}, new String[] {"every one that puts"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"is put away committeth"}, new String[] {"is put away commits"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"all things be accomplished"}, new String[] {"all things are accomplished"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"ye do not your"}, new String[] {"you do not do your"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"what reward have ye"}, new String[] {"what reward do you have"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"thy right hand doeth"}, new String[] {"your right hand does"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"Our Father who art"}, new String[] {"Our Father who is"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"thy Father, who seeth"}, new String[] {"your Father, who seeth"}, new int[] {0}));
+        CONVERSION_ITEMS.add(new ConversionItem("Art in no wise", "Are in no wise"));
+        CONVERSION_ITEMS.add(new ConversionItem("mocked of the Wise-men", "mocked by the Wise-men"));
+        CONVERSION_ITEMS.add(new ConversionItem("cometh John the Baptist", "John the Baptist came"));
+        CONVERSION_ITEMS.add(new ConversionItem("Abraham to our father", "Abraham as our father"));
+        CONVERSION_ITEMS.add(new ConversionItem("that bringeth not forth", "that does not bring forth"));
+        CONVERSION_ITEMS.add(new ConversionItem("Then cometh Jesus from", "Then Jesus went from"));
+        CONVERSION_ITEMS.add(new ConversionItem("and comest thou to", "and you come to"));
+        CONVERSION_ITEMS.add(new ConversionItem("Then he suffereth him.", "Then he suffered him."));
+        CONVERSION_ITEMS.add(new ConversionItem("every word that proceedeth", "every word that proceeds"));
+        CONVERSION_ITEMS.add(new ConversionItem("and saith unto him", "and said to him"));
+        CONVERSION_ITEMS.add(new ConversionItem("the devil taketh him", "the devil took him"));
+        CONVERSION_ITEMS.add(new ConversionItem("will I give thee", "I will give to you"));
+        CONVERSION_ITEMS.add(new ConversionItem("that time began Jesus", "that time Jesus began"));
+        CONVERSION_ITEMS.add(new ConversionItem("Come ye after me", "Come after me"));
+        CONVERSION_ITEMS.add(new ConversionItem("and there rememberest that", "and there remember that"));
+        CONVERSION_ITEMS.add(new ConversionItem("leave there thy gift", "leave your gift"));
+        CONVERSION_ITEMS.add(new ConversionItem("every one that looketh", "every one that looks"));
+        CONVERSION_ITEMS.add(new ConversionItem("every one that putteth", "every one that puts"));
+        CONVERSION_ITEMS.add(new ConversionItem("is put away committeth", "is put away commits"));
+        CONVERSION_ITEMS.add(new ConversionItem("all things be accomplished", "all things are accomplished"));
+        CONVERSION_ITEMS.add(new ConversionItem("ye do not your", "you do not do your"));
+        CONVERSION_ITEMS.add(new ConversionItem("what reward have ye", "what reward do you have"));
+        CONVERSION_ITEMS.add(new ConversionItem("thy right hand doeth", "your right hand does"));
+        CONVERSION_ITEMS.add(new ConversionItem("Our Father who art", "Our Father who is"));
+        CONVERSION_ITEMS.add(new ConversionItem("thy Father, who seeth", "your Father, who seeth"));
 
         /*
          * Three-word replacements
          */
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"be thou there"}, new String[] {"stay there"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"Make ye ready"}, new String[] {"Make ready"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"the axe lieth"}, new String[] {"the axe lays"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"he that cometh"}, new String[] {"he that comes"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"Then was Jesus"}, new String[] {"Then Jesus was"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"he afterward hungered."}, new String[] {"he hungered."}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"and showeth him"}, new String[] {"and showed him"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"Get thee hence"}, new String[] {"Go away"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"so persecuted they"}, new String[] {"so they persecuted"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"the salt have"}, new String[] {"the salt has"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"it shineth unto"}, new String[] {"it shines to"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"thy brother hath"}, new String[] {"your brother has"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"come out thence"}, new String[] {"come out of there"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"her hath committed"}, new String[] {"her has committed"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"right eye causeth"}, new String[] {"right eye causes"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"right hand causeth"}, new String[] {"right hand causes"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"maketh her an"}, new String[] {"makes her an"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"him that asketh"}, new String[] {"him that asks"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"turn not thou"}, new String[] {"turn not"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"for he maketh"}, new String[] {"for he makes"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"and sendeth rain"}, new String[] {"and sends rain"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"thou doest alms"}, new String[] {"you do alms"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"Father who seeth"}, new String[] {"Father who sees"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"when thou prayest"}, new String[] {"when you pray"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"your Father knoweth"}, new String[] {"your Father knows"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"when thou fastest"}, new String[] {"when you fast"}, new int[] {0}));
+        CONVERSION_ITEMS.add(new ConversionItem("be thou there", "stay there"));
+        CONVERSION_ITEMS.add(new ConversionItem("Make ye ready", "Make ready"));
+        CONVERSION_ITEMS.add(new ConversionItem("the axe lieth", "the axe lays"));
+        CONVERSION_ITEMS.add(new ConversionItem("he that cometh", "he that comes"));
+        CONVERSION_ITEMS.add(new ConversionItem("Then was Jesus", "Then Jesus was"));
+        CONVERSION_ITEMS.add(new ConversionItem("he afterward hungered.", "he hungered."));
+        CONVERSION_ITEMS.add(new ConversionItem("and showeth him", "and showed him"));
+        CONVERSION_ITEMS.add(new ConversionItem("Get thee hence", "Go away"));
+        CONVERSION_ITEMS.add(new ConversionItem("so persecuted they", "so they persecuted"));
+        CONVERSION_ITEMS.add(new ConversionItem("the salt have", "the salt has"));
+        CONVERSION_ITEMS.add(new ConversionItem("it shineth unto", "it shines to"));
+        CONVERSION_ITEMS.add(new ConversionItem("thy brother hath", "your brother has"));
+        CONVERSION_ITEMS.add(new ConversionItem("come out thence", "come out of there"));
+        CONVERSION_ITEMS.add(new ConversionItem("her hath committed", "her has committed"));
+        CONVERSION_ITEMS.add(new ConversionItem("right eye causeth", "right eye causes"));
+        CONVERSION_ITEMS.add(new ConversionItem("right hand causeth", "right hand causes"));
+        CONVERSION_ITEMS.add(new ConversionItem("maketh her an", "makes her an"));
+        CONVERSION_ITEMS.add(new ConversionItem("him that asketh", "him that asks"));
+        CONVERSION_ITEMS.add(new ConversionItem("turn not thou", "turn not"));
+        CONVERSION_ITEMS.add(new ConversionItem("for he maketh", "for he makes"));
+        CONVERSION_ITEMS.add(new ConversionItem("and sendeth rain", "and sends rain"));
+        CONVERSION_ITEMS.add(new ConversionItem("thou doest alms", "you do alms"));
+        CONVERSION_ITEMS.add(new ConversionItem("Father who seeth", "Father who sees"));
+        CONVERSION_ITEMS.add(new ConversionItem("when thou prayest", "when you pray"));
+        CONVERSION_ITEMS.add(new ConversionItem("your Father knoweth", "your Father knows"));
+        CONVERSION_ITEMS.add(new ConversionItem("when thou fastest", "when you fast"));
 
         /*
          * Two-word replacements
          */
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"thou son"}, new String[] {"son"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"come forth"}, new String[] {"come"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"cometh forth"}, new String[] {"comes"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"Repent ye;"}, new String[] {"Repent,"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"thou art"}, new String[] {"you are"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"thou wilt"}, new String[] {"you will"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"holden with"}, new String[] {"held by"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"be exceeding"}, new String[] {"be exceedingly"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"canst not"}, new String[] {"cannot"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"whosoever smiteth"}, new String[] {"whosoever smites"}, new int[] {0}));
+        CONVERSION_ITEMS.add(new ConversionItem("thou son", "son"));
+        CONVERSION_ITEMS.add(new ConversionItem("come forth", "come"));
+        CONVERSION_ITEMS.add(new ConversionItem("cometh forth", "comes"));
+        CONVERSION_ITEMS.add(new ConversionItem("Repent ye;", "Repent,"));
+        CONVERSION_ITEMS.add(new ConversionItem("thou art", "you are"));
+        CONVERSION_ITEMS.add(new ConversionItem("thou wilt", "you will"));
+        CONVERSION_ITEMS.add(new ConversionItem("holden with", "held by"));
+        CONVERSION_ITEMS.add(new ConversionItem("be exceeding", "be exceedingly"));
+        CONVERSION_ITEMS.add(new ConversionItem("canst not", "cannot"));
+        CONVERSION_ITEMS.add(new ConversionItem("whosoever smiteth", "whosoever smites"));
 
         /*
          * Single-word replacements (place last so longer matches are done first...)
          */
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"beget"}, new String[] {"father"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"begat"}, new String[] {"fathered"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"privily"}, new String[] {"privately"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"thy"}, new String[] {"your"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"Thy"}, new String[] {"Your"}, new int[] {0}));
+        CONVERSION_ITEMS.add(new ConversionItem("beget", "father"));
+        CONVERSION_ITEMS.add(new ConversionItem("begat", "fathered"));
+        CONVERSION_ITEMS.add(new ConversionItem("privily", "privately"));
+        CONVERSION_ITEMS.add(new ConversionItem("thy", "your"));
+        CONVERSION_ITEMS.add(new ConversionItem("Thy", "Your"));
         // Make sure "shall" comes before "shalt", otherwise "shalt" will go to "will"
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"shall"}, new String[] {"will"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"shalt"}, new String[] {"shall"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"unto"}, new String[] {"to"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"thee"}, new String[] {"you"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"thou"}, new String[] {"you"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"Thou"}, new String[] {"You"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"ye"}, new String[] {"you"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"Ye"}, new String[] {"You"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"thither"}, new String[] {"there"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"Judæa"}, new String[] {"Judea"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"Wise-men"}, new String[] {"wise men"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"hewn"}, new String[] {"cut"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"leathern"}, new String[] {"leather"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"thyself"}, new String[] {"yourself"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"thence"}, new String[] {"there"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"divers"}, new String[] {"various"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"wherewith"}, new String[] {"with what"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"thenceforth"}, new String[] {"thereafter"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"aught"}, new String[] {"anything"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"thine"}, new String[] {"your"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"canst"}, new String[] {"can"}, new int[] {0}));
-        CONVERSION_ITEMS.add(new ConversionItem(new String[] {"doest"}, new String[] {"do"}, new int[] {0}));
+        CONVERSION_ITEMS.add(new ConversionItem("shall", "will"));
+        CONVERSION_ITEMS.add(new ConversionItem("shalt", "shall"));
+        CONVERSION_ITEMS.add(new ConversionItem("unto", "to"));
+        CONVERSION_ITEMS.add(new ConversionItem("thee", "you"));
+        CONVERSION_ITEMS.add(new ConversionItem("thou", "you"));
+        CONVERSION_ITEMS.add(new ConversionItem("Thou", "You"));
+        CONVERSION_ITEMS.add(new ConversionItem("ye", "you"));
+        CONVERSION_ITEMS.add(new ConversionItem("Ye", "You"));
+        CONVERSION_ITEMS.add(new ConversionItem("thither", "there"));
+        CONVERSION_ITEMS.add(new ConversionItem("Judæa", "Judea"));
+        CONVERSION_ITEMS.add(new ConversionItem("Wise-men", "wise men"));
+        CONVERSION_ITEMS.add(new ConversionItem("hewn", "cut"));
+        CONVERSION_ITEMS.add(new ConversionItem("leathern", "leather"));
+        CONVERSION_ITEMS.add(new ConversionItem("thyself", "yourself"));
+        CONVERSION_ITEMS.add(new ConversionItem("thence", "there"));
+        CONVERSION_ITEMS.add(new ConversionItem("divers", "various"));
+        CONVERSION_ITEMS.add(new ConversionItem("wherewith", "with what"));
+        CONVERSION_ITEMS.add(new ConversionItem("thenceforth", "thereafter"));
+        CONVERSION_ITEMS.add(new ConversionItem("aught", "anything"));
+        CONVERSION_ITEMS.add(new ConversionItem("thine", "your"));
+        CONVERSION_ITEMS.add(new ConversionItem("canst", "can"));
+        CONVERSION_ITEMS.add(new ConversionItem("doest", "do"));
 
 
 
-        //CONVERSION_ITEMS.add(new ConversionItem(new String[] {"didst", "not", "thou"}, new String[] {"did", "not", "you"}, new int[] {0, 2, 1}));
-        //CONVERSION_ITEMS.add(new ConversionItem(new String[] {"Didst", "not", "thou"}, new String[] {"Did", "not", "you"}, new int[] {0, 2, 1}));
+        //CONVERSION_ITEMS.add(new ConversionItem("didst", "not", "thou", "did", "not", "you"}, new int[] {0, 2, 1}));
+        //CONVERSION_ITEMS.add(new ConversionItem("Didst", "not", "thou", "Did", "not", "you"}, new int[] {0, 2, 1}));
 
         // Test for items that cover multiple segments
-        //CONVERSION_ITEMS.add(new ConversionItem(new String[] {"unto thy handmaid, saying, Assuredly"}, new String[] {"nothing"}, new int[] {0}));
+        //CONVERSION_ITEMS.add(new ConversionItem("unto thy handmaid, saying, Assuredly", "nothing"));
     }
 }
