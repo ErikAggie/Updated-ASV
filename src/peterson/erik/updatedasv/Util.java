@@ -288,6 +288,9 @@ public class Util {
             new ConversionItem("God doth so clothe", "God so clothes"),
             new ConversionItem("But seek ye first", "But seek first"),
             new ConversionItem("therefore like unto them", "therefore like them"),
+            new ConversionItem("that saith unto me", "that says to me"),
+            new ConversionItem("that doeth the will", "that does the will"),
+            new ConversionItem("one therefore that heareth", "one therefore that hears"),
 
             /*
              * Three-word replacements
@@ -319,7 +322,17 @@ public class Util {
             new ConversionItem("your Father knoweth", "your Father knows"),
             new ConversionItem("when thou fastest", "when you fast"),
             new ConversionItem("therefore pray ye:", "therefore pray:"),
-
+            new ConversionItem("why beholdest thou", "why do you behold"),
+            new ConversionItem("but considerest not", "but do not consider"),
+            new ConversionItem("how wilt thou", "how will you"),
+            new ConversionItem("that asketh receiveth", "that asks receives"),
+            new ConversionItem("that seeketh findeth", "that seeks finds"),
+            new ConversionItem("him that knocketh", "him that knocks"),
+            new ConversionItem("do ye also", "do also"),
+            new ConversionItem("Enter ye in", "Enter in"),
+            new ConversionItem("that leadeth to", "that leads to"),
+            new ConversionItem("and doeth them", "and does them"),
+            new ConversionItem("one that heareth", "one that hears"),
 
             /*
              * Two-word replacements
@@ -336,6 +349,7 @@ public class Util {
             new ConversionItem("whosoever smiteth", "whosoever smites"),
             new ConversionItem("use not", "do not use"),
             new ConversionItem("doth consume", "consumes"),
+            new ConversionItem("bringeth forth", "brings forth"),
 
             /*
              * Single-word replacements place last so longer matches are done first...)
