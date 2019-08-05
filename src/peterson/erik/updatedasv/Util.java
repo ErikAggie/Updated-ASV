@@ -242,6 +242,11 @@ public class Util {
 
     public static final ConversionItem[] CONVERSION_ITEMS = {
             /*
+             * Seven-word replacements
+             */
+            new ConversionItem("the Son of man hath not where", "the Son of man has nowhere"),
+
+            /*
              * Six-word replacements
              */
             new ConversionItem("an angel of the Lord appeareth", "an angel of the Lord appeared"),
@@ -291,6 +296,11 @@ public class Util {
             new ConversionItem("that saith unto me", "that says to me"),
             new ConversionItem("that doeth the will", "that does the will"),
             new ConversionItem("one therefore that heareth", "one therefore that hears"),
+            new ConversionItem("Jesus saith unto him", "Jesus said to him"),
+            new ConversionItem("he saith unto him", "he said to him"),
+            new ConversionItem("my servant lieth in", "my servant lies in"),
+            new ConversionItem("and he doeth it", "and he does it"),
+            new ConversionItem("art thou come hither", "have you come here"),
 
             /*
              * Three-word replacements
@@ -333,6 +343,13 @@ public class Util {
             new ConversionItem("that leadeth to", "that leads to"),
             new ConversionItem("and doeth them", "and does them"),
             new ConversionItem("one that heareth", "one that hears"),
+            new ConversionItem("be thou made", "be made"),
+            new ConversionItem("See thou tell", "See that you tell"),
+            new ConversionItem("he saith to", "he said to"),
+            new ConversionItem("and he goeth", "and he goes"),
+            new ConversionItem("and he cometh", "and he comes"),
+            new ConversionItem("whithersoever thou goest", "wherever you go"),
+            new ConversionItem("Himself took our", "He himself took our"),
 
             /*
              * Two-word replacements
@@ -350,6 +367,7 @@ public class Util {
             new ConversionItem("use not", "do not use"),
             new ConversionItem("doth consume", "consumes"),
             new ConversionItem("bringeth forth", "brings forth"),
+            new ConversionItem("exceeding fierce,", "exceedingly fierce,"),
 
             /*
              * Single-word replacements place last so longer matches are done first...)
@@ -381,6 +399,9 @@ public class Util {
             new ConversionItem("aught", "anything"),
             new ConversionItem("thine", "your"),
             new ConversionItem("canst", "can"),
-            new ConversionItem("doest", "do")
+            new ConversionItem("doest", "do"),
+            new ConversionItem("shouldest", "should"),
+            new ConversionItem("hast", "have"),
+            new ConversionItem("whithersoever", "wherever")
     };
 }
