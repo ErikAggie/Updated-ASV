@@ -260,6 +260,8 @@ public class Util {
             new ConversionItem("And he saith unto them", "And he said to them"),
             new ConversionItem("ye shall not be as", "you will not be like"),
             new ConversionItem("your heavenly Father knoweth that", "your heavenly Father knows that"),
+            new ConversionItem("fill it up taketh from", "fill it up takes from"),
+            new ConversionItem("Pray ye therefore the Lord", "Pray you therefore to the Lord"),
 
             /*
              * Four-word replacements
@@ -301,6 +303,15 @@ public class Util {
             new ConversionItem("my servant lieth in", "my servant lies in"),
             new ConversionItem("and he doeth it", "and he does it"),
             new ConversionItem("art thou come hither", "have you come here"),
+            new ConversionItem("Son of man hath", "Son of man has"),
+            new ConversionItem("Why eateth your Teacher", "Why does your Teacher eat"),
+            new ConversionItem("meaneth, I desire mercy", "means, I desire mercy"),
+            new ConversionItem("Then come to him", "Then came to him"),
+            new ConversionItem("no man putteth a", "no man puts a"),
+            new ConversionItem("If I do but", "If I but"),
+            new ConversionItem("thy faith hath made", "your faith has made"),
+            new ConversionItem("Jesus saith unto them", "Jesus said to them"),
+            new ConversionItem("Then saith he to", "Then he said to"),
 
             /*
              * Three-word replacements
@@ -350,6 +361,14 @@ public class Util {
             new ConversionItem("and he cometh", "and he comes"),
             new ConversionItem("whithersoever thou goest", "wherever you go"),
             new ConversionItem("Himself took our", "He himself took our"),
+            new ConversionItem("This man blasphemeth.", "This man blasphemes."),
+            new ConversionItem("Wherefore think ye", "Why do you think"),
+            new ConversionItem("then saith he", "then he said"),
+            new ConversionItem("Then saith he", "Then he said"),
+            new ConversionItem("he was come", "he came"),
+            new ConversionItem("Believe ye that", "Do you believe that"),
+            new ConversionItem("Then touched he", "Then he touched"),
+            new ConversionItem("demons casteth he", "demons he casts"),
 
             /*
              * Two-word replacements
@@ -368,6 +387,8 @@ public class Util {
             new ConversionItem("doth consume", "consumes"),
             new ConversionItem("bringeth forth", "brings forth"),
             new ConversionItem("exceeding fierce,", "exceedingly fierce,"),
+            new ConversionItem("fast oft,", "fast often,"),
+            new ConversionItem("but sleepeth.", "but sleeps."),
 
             /*
              * Single-word replacements place last so longer matches are done first...)
@@ -402,6 +423,9 @@ public class Util {
             new ConversionItem("doest", "do"),
             new ConversionItem("shouldest", "should"),
             new ConversionItem("hast", "have"),
-            new ConversionItem("whithersoever", "wherever")
+            new ConversionItem("whithersoever", "wherever"),
+            new ConversionItem("spake", "spoke"),
+            new ConversionItem("hereof", "concerning this")
+
     };
 }
