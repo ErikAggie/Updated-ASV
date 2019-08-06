@@ -216,8 +216,17 @@ public class ChapterConverter {
                 segmentsToUpdate.add(segment);
             }
         }
-        for ( ConversionItem item : Util.CONVERSION_ITEMS) {
-            item.makeConversion(segmentsToUpdate);
+        for ( Segment updatableSegment: segmentsToUpdate) {
+            String originalText = updatableSegment.getPlainText();
+            String newText = originalText;
+            for ( ConversionItem item : Util.CONVERSION_ITEMS) {
+                newText = item.makeConversion(newText);
+            }
+            if ( !newText.equals(originalText)) {
+                // We made a change!
+                updatableSegment.updateText(newText);
+                //updatableSegment.updateText(Util.POPUP_BEGINNING + newText + Util.POPUP_MIDDLE + originalText + Util.POPUP_END);
+            }
         }
 
         StringBuilder updatedTextBuilder = new StringBuilder();

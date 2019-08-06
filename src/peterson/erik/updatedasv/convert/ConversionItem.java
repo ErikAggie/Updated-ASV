@@ -21,23 +21,22 @@ public class ConversionItem {
         beginningPatternToMatch = Pattern.compile("^(" + textToMatch + ")([\\W]+)");
     }
 
-    /* package */ void makeConversion(List<Segment> segments) {
-        for (Segment segment : segments) {
-            String originalText = segment.getPlainText();
+    /* package */ String makeConversion(String originalText) {
 
-            // Do a quick test since, most of the time, we won't need to run the matcher...
-            if ( !originalText.contains(textToMatch)) {
-                continue;
-            }
+        // Do a quick test since, most of the time, we won't need to run the matcher...
+        if (!originalText.contains(textToMatch)) {
+            return originalText;
+        }
 
-            Matcher matcher = patternToMatch.matcher(originalText);
-            String newText = matcher.replaceAll(x -> x.group(1) + textReplacement + x.group(3));
-            matcher = beginningPatternToMatch.matcher(newText);
-            newText = matcher.replaceAll(x -> textReplacement + x.group(2));
-            if (!newText.equals(originalText)) {
-                numReplacements++;
-                segment.updateText(newText);
-            }
+        Matcher matcher = patternToMatch.matcher(originalText);
+        String newText = matcher.replaceAll(x -> x.group(1) + textReplacement + x.group(3));
+        matcher = beginningPatternToMatch.matcher(newText);
+        newText = matcher.replaceAll(x -> textReplacement + x.group(2));
+        if (!newText.equals(originalText)) {
+            numReplacements++;
+            return newText;
+        } else {
+            return originalText;
         }
     }
 

@@ -240,6 +240,10 @@ public class Util {
                     "This modification is Copyright 2019 by Erik Peterson. All rights reserved. " +
                     "Future permissions will likely be more open.</div>";
 
+    public static final String POPUP_BEGINNING = "<a href=\"#FN1\" class=\"notemark\">";
+    public static final String POPUP_MIDDLE = "<span class=\"popup\">";
+    public static final String POPUP_END = "</span></a>";
+
     public static final ConversionItem[] CONVERSION_ITEMS = {
             /*
              * Seven-word replacements
