@@ -22,7 +22,10 @@ public class ConversionItem {
     }
 
     /* package */ String makeConversion(String originalText) {
-
+        if ( originalText.equals(textToMatch)) {
+            numReplacements++;
+            return textReplacement;
+        }
         // Do a quick test since, most of the time, we won't need to run the matcher...
         if (!originalText.contains(textToMatch)) {
             return originalText;

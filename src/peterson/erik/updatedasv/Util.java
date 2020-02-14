@@ -316,6 +316,9 @@ public class Util {
             new ConversionItem("thy faith hath made", "your faith has made"),
             new ConversionItem("Jesus saith unto them", "Jesus said to them"),
             new ConversionItem("Then saith he to", "Then he said to"),
+            new ConversionItem("that fadeth not away", "that does not fade away"),
+            new ConversionItem("but giveth grace to", "but gives grace to"),
+            new ConversionItem("stand ye fast therein", "you stand fast in it"),
 
             /*
              * Three-word replacements
@@ -373,6 +376,11 @@ public class Util {
             new ConversionItem("Believe ye that", "Do you believe that"),
             new ConversionItem("Then touched he", "Then he touched"),
             new ConversionItem("demons casteth he", "demons he casts"),
+            new ConversionItem("neither as lording", "neither lording"),
+            new ConversionItem("God resisteth the", "God resists the"),
+            new ConversionItem("because he careth", "because he cares"),
+            new ConversionItem("lion, walketh about", "lion, walks about"),
+            new ConversionItem("whom withstand stedfast", "withstand him steadfast"),
 
             /*
              * Two-word replacements
@@ -393,6 +401,8 @@ public class Util {
             new ConversionItem("exceeding fierce,", "exceedingly fierce,"),
             new ConversionItem("fast oft,", "fast often,"),
             new ConversionItem("but sleepeth.", "but sleeps."),
+            new ConversionItem("saluteth you", "salutes you"),
+            new ConversionItem("so doth", "so does"),
 
             /*
              * Single-word replacements place last so longer matches are done first...)
@@ -402,8 +412,6 @@ public class Util {
             new ConversionItem("privily", "privately"),
             new ConversionItem("thy", "your"),
             new ConversionItem("Thy", "Your"),
-            // Make sure "shall" comes before "shalt", otherwise "shalt" will go to "will"
-            new ConversionItem("shall", "will"),
             new ConversionItem("shalt", "shall"),
             new ConversionItem("unto", "to"),
             new ConversionItem("thee", "you"),
@@ -429,7 +437,11 @@ public class Util {
             new ConversionItem("hast", "have"),
             new ConversionItem("whithersoever", "wherever"),
             new ConversionItem("spake", "spoke"),
-            new ConversionItem("hereof", "concerning this")
+            new ConversionItem("hereof", "concerning this"),
+            new ConversionItem("ensamples", "examples"),
+            new ConversionItem("Yea", "Yes"),
+            new ConversionItem("doth", "does")
+
 
     };
 }
